@@ -25,19 +25,28 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css",
-              "https://unpkg.com/bootstrap@5.3.3/dist/css/bootstrap.min.css",
-              "https://cdnjs.cloudflare.com/ajax/libs/ionicons/5.5.2/css/ionicons.min.css",
-              "src/assets/css/app.min.css",
-              "src/assets/css/icons.min.css"
+              "https://cdnjs.cloudflare.com/ajax/libs/material-design-icons/4.0.0/css/material-icons.min.css",
+              "src/assets/css/vendor.bundle.base.css",
+              "src/assets/css/jquery-jvectormap.css",
+              "https://cdn.jsdelivr.net/npm/flag-icons@7.0.0/css/flag-icons.min.css",
+              "src/assets/css/owl.carousel.min.css",
+              "src/assets/css/owl.theme.default.min.css",
+              "src/assets/css/style.css"
             ],
             "scripts": [
-              "src/assets/js/jquery.min.js",
-              "src/assets/js/bootstrap.bundle.min.js",
-              "src/assets/js/simplebar.min.js",
-              "src/assets/js/waves.min.js",
-              "src/assets/js/jquery.waypoints.min.js",
-              "src/assets/js/jquery.counterup.min.js"
+              "src/assets/js/vendor.bundle.base.js",
+              "src/assets/js/Chart.min.js",
+              "src/assets/js/progressbar.min.js",
+              "src/assets/js/jquery-jvectormap.min.js",
+              "src/assets/js/jquery-jvectormap-world-mill-en.js",
+              "src/assets/js/owl.carousel.min.js",
+              "src/assets/js/jquery.cookie.js",
+              "src/assets/js/off-canvas.js",
+              "src/assets/js/hoverable-collapse.js",
+              "src/assets/js/misc.js",
+              "src/assets/js/settings.js",
+              "src/assets/js/todolist.js",
+              "src/assets/js/dashboard.js"
             ],
             "server": "src/main.server.ts",
             "prerender": true,
