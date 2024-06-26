@@ -28,7 +28,9 @@
               "src/styles.css",
               "https://unpkg.com/bootstrap@5.3.3/dist/css/bootstrap.min.css",
               "https://cdnjs.cloudflare.com/ajax/libs/ionicons/5.5.2/css/ionicons.min.css",
-              "src/assets/css/app.min.css"
+              "https://cdn.materialdesignicons.com/6.9.96/css/materialdesignicons.min.css",
+              "src/assets/css/app.min.css",
+              "https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.css"
             ],
             "scripts": [
               "src/assets/js/jquery.min.js",
