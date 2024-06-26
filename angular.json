@@ -26,19 +26,20 @@
             ],
             "styles": [
               "src/styles.css",
-              "https://unpkg.com/bootstrap@5.3.3/dist/css/bootstrap.min.css",
-              "https://cdnjs.cloudflare.com/ajax/libs/ionicons/5.5.2/css/ionicons.min.css",
-              "https://cdn.materialdesignicons.com/6.9.96/css/materialdesignicons.min.css",
-              "src/assets/css/app.min.css",
-              "https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.css"
+              "src/assets/css/bootstrap.min.css", 
+              "src/assets/css/plugins.css",
+              "src/assets/css/kaiadmin.min.css",
+              "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
             ],
             "scripts": [
+              "src/assets/js/aweson.js",
               "src/assets/js/jquery.min.js",
               "src/assets/js/bootstrap.bundle.min.js",
               "src/assets/js/simplebar.min.js",
               "src/assets/js/waves.min.js",
               "src/assets/js/jquery.waypoints.min.js",
-              "src/assets/js/jquery.counterup.min.js"
+              "src/assets/js/jquery.counterup.min.js",
+              "src/assets/js/kaiadmin.min.js"
             ],
             "server": "src/main.server.ts",
             "prerender": true,
