@@ -32,8 +32,9 @@
               "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
             ],
             "scripts": [
+              
               "src/assets/js/aweson.js",
-              "src/assets/js/jquery.min.js",
+              "src/assets/js/jquery-3.7.1.min.js",
               "src/assets/js/bootstrap.bundle.min.js",
               "src/assets/js/simplebar.min.js",
               "src/assets/js/waves.min.js",
