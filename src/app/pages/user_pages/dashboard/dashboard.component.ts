@@ -1,28 +1,18 @@
 import { Component } from '@angular/core';
+import { SiderbarAdminComponent } from '../../siderbar/siderbar-admin/siderbar-admin.component';
 import { Router } from '@angular/router';
 
-
-
 @Component({
-  selector: 'app-siderbar-admin',
+  selector: 'app-dashboard',
   standalone: true,
-  imports: [],
-  templateUrl: './siderbar-admin.component.html',
-  styleUrl: './siderbar-admin.component.css'
+  imports: [SiderbarAdminComponent],
+  templateUrl: './dashboard.component.html',
+  styleUrl: './dashboard.component.css'
 })
-export class SiderbarAdminComponent {
-
-  isSidebarVisible: boolean = false;
-
-  toggleSidebar() {
-    this.isSidebarVisible = !this.isSidebarVisible;
-  }
+export class DashboardComponent {
   constructor(private router:Router){
 
   };
-  Go_on_dashboard(){
-    this.router.navigateByUrl('dashboard_User')
-  }
   Go_on_medical_affiche(){
     this.router.navigateByUrl('affiche_medical')
   }
