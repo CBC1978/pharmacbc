@@ -1,0 +1,163 @@
+
+
+<app-sidebar-admin>
+    <main id="main" class="main">
+
+        <section class="section dashboard">
+            <div class="row">
+  
+              <!-- Left side columns -->
+              <div class="col-lg-8">
+                <div class="row">
+  
+                  <!-- Sales Card -->
+                  <div class="col-xxl-4 col-md-6" *ngIf="permissions.includes('Envoyer une demande de remboursement frais médicaux')">
+                    <div class="card info-card sales-card">
+                      <div class="card-body">
+                        <h5 class="card-title">Solde pharmacie</h5>
+                        <div class="d-flex align-items-center">
+                          <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                            <i class="bi bi-currency-dollar"></i>
+                          </div>
+                          <div class="ps-3">
+                            <h6>{{counts.user.solde_pharmacie}}f</h6>
+                          </div>
+                        </div>
+                      </div>
+  
+                    </div>
+                  </div><!-- End Sales Card -->
+  
+                  <!-- Revenue Card -->
+                  <div class="col-xxl-4 col-md-6" *ngIf="permissions.includes('Envoyer une demande de remboursement pharmacie')">
+                    <div class="card info-card revenue-card">
+                      <div class="card-body">
+                        <h5 class="card-title">Solde frais médicaux</h5>
+  
+                        <div class="d-flex align-items-center">
+                          <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                            <i class="bi bi-currency-dollar"></i>
+                          </div>
+                          <div class="ps-3">
+                            <h6>{{counts.user.solde_consultation}}f</h6>
+                          </div>
+                        </div>
+                      </div>
+  
+                    </div>
+                  </div><!-- End Revenue Card -->
+  
+                  <!-- Customers Card -->
+                  <div class="col-xxl-4 col-xl-12" *ngIf="permissions.includes('Afficher les exercices')">
+  
+                    <div class="card info-card customers-card">
+                      <div class="card-body">
+                        <h5 class="card-title">Demandes frais médiaux non validées</h5>
+  
+                        <div class="d-flex align-items-center">
+                          <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                            <i class="fas fa-file-medical "></i>
+                          </div>
+                          <div class="ps-3">
+                            <h6>{{counts.consultation}}</h6>
+                          </div>
+                        </div>
+  
+                      </div>
+                    </div>
+  
+                  </div><!-- End Customers Card -->
+
+                <!-- Customers Card -->
+                <div class="col-xxl-4 col-xl-12" *ngIf="permissions.includes('Afficher les exercices')">
+  
+                    <div class="card info-card customers-card">
+                      <div class="card-body">
+                        <h5 class="card-title">Demandes pharmacie non validées</h5>
+  
+                        <div class="d-flex align-items-center">
+                          <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                            <i class="fas fa-prescription-bottle "></i>
+                          </div>
+                          <div class="ps-3">
+                            <h6>{{counts.pharmacie}}</h6>
+                          </div>
+                        </div>
+  
+                      </div>
+                    </div>
+  
+                  </div><!-- End Customers Card -->
+
+                <!-- Customers Card -->
+                <div class="col-xxl-4 col-xl-12" *ngIf="permissions.includes('Afficher les utilisateurs')">
+  
+                    <div class="card info-card customers-card">
+                      <div class="card-body">
+                        <h5 class="card-title">Le nombre d'utilisateurs</h5>
+  
+                        <div class="d-flex align-items-center">
+                          <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                            <i class="bi bi-people"></i>
+                          </div>
+                          <div class="ps-3">
+                            <h6>{{counts.userCount}}</h6>
+                          </div>
+                        </div>
+  
+                      </div>
+                    </div>
+  
+                </div><!-- End Customers Card -->
+
+                <!-- Customers Card -->
+                <div class="col-xxl-4 col-xl-12" *ngIf="permissions.includes('Afficher les utilisateurs')">
+  
+                    <div class="card info-card customers-card">
+                      <div class="card-body">
+                        <h5 class="card-title">Le nombre de rôles</h5>
+  
+                        <div class="d-flex align-items-center">
+                          <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                            <i class="fas fa-user-shield"></i>
+                          </div>
+                          <div class="ps-3">
+                            <h6>{{counts.role}}</h6>
+                          </div>
+                        </div>
+  
+                      </div>
+                    </div>
+  
+                </div><!-- End Customers Card -->
+
+
+  
+                  <!-- Reports -->
+                  <div class="col-12">
+                    <div class="card">
+                      <div class="card-body">
+                        <h5 class="card-title">Reports <span>/Today</span></h5>
+  
+                        <!-- Line Chart -->
+                        <div id="reportsChart"></div>
+                        <canvas 
+                        ></canvas>
+                        
+                        <!-- End Line Chart -->
+  
+                      </div>
+  
+                    </div>
+                  </div><!-- End Reports -->
+  
+                </div>
+              </div><!-- End Left side columns -->
+  
+            </div>
+        </section> 
+
+    </main><!-- End #main --> 
+</app-sidebar-admin>
+
+

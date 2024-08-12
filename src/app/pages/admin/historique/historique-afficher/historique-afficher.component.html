@@ -1,0 +1,45 @@
+<app-sidebar-admin>
+    <main id="main" class="main">
+
+        <section class="section">
+                <div class="page-inner">
+                  <div class="col-md-12">
+                    <div class="card">
+                      <div class="card-header">
+                        
+                      </div>
+                      <div class="card-body">
+                       
+
+                        <div class="table-responsive">
+                          <table class="table table-bordered">
+                            <thead>
+                              <tr>
+                                <th style="width: 70%">Action</th>
+                                <th>Type d'action</th>
+                              </tr>
+                            </thead>
+                            <tfoot>
+                              <tr>
+                                <th> Action </th>
+                                <th>Type d'action</th>
+                              </tr>
+                            </tfoot>
+                            <tbody *ngFor="let historique of historiques; ">
+                              <tr>
+                                <td>{{historique.entity_type}} </td>
+                                <td>{{historique.action}} </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+           
+                </div>
+            
+        </section>
+
+      </main><!-- End #main --> 
+</app-sidebar-admin>

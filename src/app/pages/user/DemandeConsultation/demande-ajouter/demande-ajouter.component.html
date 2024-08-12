@@ -1,0 +1,48 @@
+<app-sidebar-admin>
+  <main id="main" class="main">
+    <section class="section">
+      <div class="row align-items-top">
+        <div class="container">
+            <div class="page-inner">
+
+              <div class="col-12 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">Demande de remboursement pour les frais médicaux </h4>
+                    <br>
+                    <form class="forms-sample" [formGroup]="consultationForm">
+                      <small *ngIf="consultationForm.controls['libelle'].touched && consultationForm.controls['libelle'].hasError('required')" class="text-danger">* Le libelle est requis</small>
+                        <div class="form-group">
+                            <label for="inputNanme4" class="form-label">Libellé</label>
+                            <input type="text" class="form-control" id="exampleInputName1"  formControlName="libelle">
+                        </div>
+                        <br>
+                        <small *ngIf="consultationForm.controls['description'].touched && consultationForm.controls['description'].hasError('required')" class="text-danger">* La description est requise</small>
+                        <div class="form-group">
+                            <label for="inputNanme4" class="form-label">Description</label>
+                            <input type="text" class="form-control" id="exampleInputName1" formControlName="description">
+                        </div>
+                        <br>
+                        <div *ngIf="message" class="text-danger" role="alert">
+                          *{{ message }}
+                        </div>
+                        <small *ngIf="consultationForm.controls['montant_demande'].touched && consultationForm.controls['montant_demande'].hasError('required')" class="text-danger">* Le montant est requis</small>
+                        <div class="form-group">
+                            <label for="inputNanme4" class="form-label">Montant de la demande</label>
+                            <input type="number" class="form-control" id="exampleInputName1"  formControlName="montant_demande">
+                        </div>
+                        <br>
+                        <br>
+                      <button type="submit" class="btn btn-primary me-2" (click)="Ajouter_consultation()" >Soumettre</button>
+                    </form>
+                  </div>
+                </div>
+              </div>   
+            </div>
+        </div>  
+      </div>
+            
+    </section>
+
+  </main><!-- End #main --> 
+</app-sidebar-admin>

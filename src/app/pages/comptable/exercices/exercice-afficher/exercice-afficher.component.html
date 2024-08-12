@@ -1,0 +1,51 @@
+<app-sidebar-admin (searchPerformed)="handleSearchResults($event)">
+    <main id="main" class="main">
+
+        <section class="section">
+            <div class="col-12">
+                <div class="card recent-sales overflow-auto">
+                  <div class="card-body">
+                    <h5 class="card-title"> La liste des exercices </h5> 
+                    <table class="table table-bordered">
+                      <thead>
+                        <tr>
+                          <th scope="col">Libelle</th>
+                          <th scope="col">Le solde pharmacie</th>
+                          <th scope="col">Le solde frais médicaux</th>
+                          <th scope="col">La date de début</th>
+                          <th scope="col">La date de fin</th>
+                          <th scope="col">Statut</th>
+                          <th scope="col">Action</th>
+                        </tr>
+                      </thead>
+                      <tbody *ngFor="let exercice of exercices;">
+                        <tr>
+                          <td>{{exercice.libelle}}</td>
+                          <td>{{exercice.solde_pharmacie}}</td>
+                          <td>{{exercice.solde_consultation}}</td>
+                          <td>{{exercice.date_debut}}</td>
+                          <td>{{exercice.date_fin}}</td>
+                          <td>{{exercice.statut_exercice}}</td>
+                          <td *ngIf="exercice.statut_exercice == 'en cours'"  type="button" ><span class="badge bg-success" (click)="Cloturer_exercice(exercice.id)">Clôturer</span></td>
+                          <td *ngIf="exercice.statut_exercice == 'cloturer'" >
+                            <div class="form-button-action">
+                                <button type="button" data-bs-toggle="tooltip" title="Modifier" class="btn btn-link btn-primary btn-lg" data-original-title="Edit Task" (click)="Modifier_exercice(exercice.id)" >
+                                    <i class="fa fa-edit"></i>
+                                </button>
+                                <button type="button" data-bs-toggle="tooltip" title="Supprimer" class="btn  btn-outline-danger"data-original-title="Remove" (click)="Supprimer_exercice(exercice.id)" >
+                                    <i class="fa fa-times"></i>
+                                </button>
+                            </div>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+  
+                </div>
+            </div>
+        </section>
+
+    </main><!-- End #main --> 
+</app-sidebar-admin>
+

@@ -1,0 +1,37 @@
+<app-sidebar-admin>
+    <main id="main" class="main">
+
+        <section class="section">
+            <div class="row align-items-top">
+                <div class="container">
+                    <div class="page-inner">
+
+                      <div class="col-12 grid-margin stretch-card">
+                        <div class="card">
+                          <div class="card-body">
+                            <h4 class="card-title">Ajoutez des sites </h4>
+                            <br>
+                            <form class="forms-sample"[formGroup]="siteForm">
+                              <div class="form-group">
+                                <label for="exampleInputName1">Libellé</label>
+                                <br>
+                                <small *ngIf="siteForm.controls['libelle'].touched && siteForm.controls['libelle'].hasError('required')" class="text-danger">* Le libelle est requis</small>
+                                <br>
+                                <input type="text" class="form-control" id="exampleInputName1" placeholder="Le libellé du site" formControlName="libelle">
+                              </div>
+                              <br>
+                              <button type="submit" class="btn btn-primary me-2" (click)="Ajouter_site()">Soumettre</button>
+                  
+                            </form>
+                          </div>
+                        </div>
+                      </div>   
+                    </div>
+                </div>  
+            </div>
+        </section>
+
+    </main><!-- End #main --> 
+
+</app-sidebar-admin>
+

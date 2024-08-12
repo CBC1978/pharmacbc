@@ -1,0 +1,49 @@
+<app-sidebar-admin>
+    <main id="main" class="main">
+      <section class="section">
+        <div class="row align-items-top">
+          <div class="container">
+              <div class="page-inner">
+  
+                <div class="col-12 grid-margin stretch-card">
+                  <div class="card">
+                    <div class="card-body">
+                      <h4 class="card-title">Demande de remboursemnet pharmacie </h4>
+                      <br>
+                      <form class="forms-sample" [formGroup]="pharmacieForm">
+                          <small *ngIf="pharmacieForm.controls['libelle'].touched && pharmacieForm.controls['libelle'].hasError('required')" class="text-danger">* Le libelle est requis</small>
+                          <div class="form-group">
+                              <label for="inputNanme4" class="form-label">Libellé</label>
+                              <input type="text" class="form-control" id="exampleInputName1"  formControlName="libelle">
+                          </div>
+                          <br>
+                          <small *ngIf="pharmacieForm.controls['description'].touched && pharmacieForm.controls['description'].hasError('required')" class="text-danger">* La description est requise</small>
+                          <div class="form-group">
+                              <label for="inputNanme4" class="form-label">Description</label>
+                              <input type="text" class="form-control" id="exampleInputName1" formControlName="description">
+                          </div>
+                          <br>
+                          <div *ngIf="message" class="text-danger" role="alert">
+                            *{{ message }}
+                          </div>
+                          <small *ngIf="pharmacieForm.controls['montant_demande'].touched && pharmacieForm.controls['montant_demande'].hasError('required')" class="text-danger">* Le montant est requis</small>
+                          <div class="form-group">
+                              <label for="inputNanme4" class="form-label">Montant de la demande</label>
+                              <input type="number" class="form-control" id="exampleInputName1"  formControlName="montant_demande">
+                          </div>
+                          <br>
+                          <br>
+                        <button type="submit" class="btn btn-primary me-2" (click)="Ajouter_pharmacie()" >Soumettre</button>
+                      </form>
+                    </div>
+                  </div>
+                </div>   
+              </div>
+          </div>  
+        </div>
+              
+      </section>
+  
+    </main><!-- End #main --> 
+  </app-sidebar-admin>
+  
