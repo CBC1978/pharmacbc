@@ -1,0 +1,36 @@
+<app-sidebar-admin>
+    <main id="main" class="main">
+
+        <section class="section">
+            <div class="row align-items-top">
+                <div class="container">
+                    <div class="page-inner">
+
+                      <div class="col-12 grid-margin stretch-card">
+                        <div class="card">
+                          <div class="card-body">
+                            <h4 class="card-title">Modifier la fonction </h4>
+                            <br>
+                            <form class="forms-sample" >
+                              <div class="form-group" *ngIf="fonction">
+                                <label for="exampleInputName1">Libellé</label>
+                                <br>
+                                
+                                <br>
+                                <input type="text" class="form-control" id="exampleInputName1"  [(ngModel)]="fonction.libelle" name="libelle" >
+                              </div>
+                              <br>
+                              <button type="submit" class="btn btn-primary me-2" (click)="Save_updated()"> Modifier </button>
+                  
+                            </form>
+                          </div>
+                        </div>
+                      </div>   
+                    </div>
+                </div>  
+            </div>
+        </section>
+
+    </main><!-- End #main --> 
+
+</app-sidebar-admin>

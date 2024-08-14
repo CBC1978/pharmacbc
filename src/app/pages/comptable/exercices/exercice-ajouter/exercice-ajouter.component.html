@@ -1,0 +1,62 @@
+<app-sidebar-admin>
+    <main id="main" class="main">
+
+        <section class="section">
+            <div class="row align-items-top">
+                <div class="container">
+                    <div class="page-inner">
+
+                      <div class="col-12 grid-margin stretch-card">
+                        <div class="card">
+                          <div class="card-body">
+                            <h4 class="card-title">Ajoutez des fonctions </h4>
+                            <br>
+                            <form class="forms-sample" [formGroup]="exerciceForm">
+                                <small *ngIf="exerciceForm.controls['libelle'].touched && exerciceForm.controls['libelle'].hasError('required')" class="text-danger">* Le libelle est requis</small>
+                                <div class="form-group">
+                                    <label for="inputNanme4" class="form-label">Libellé</label>
+                                    <input type="text" class="form-control" id="exampleInputName1"  formControlName="libelle">
+                                </div>
+                                <br>
+                                <small *ngIf="exerciceForm.controls['description'].touched && exerciceForm.controls['description'].hasError('required')" class="text-danger">* La description est requise</small>
+                                <div class="form-group">
+                                    <label for="inputNanme4" class="form-label">Description</label>
+                                    <input type="text" class="form-control" id="exampleInputName1" formControlName="description">
+                                </div>
+                                <br>
+                                <small *ngIf="exerciceForm.controls['solde_pharmacie'].touched && exerciceForm.controls['solde_pharmacie'].hasError('required')" class="text-danger">* Le solde pharmacie est requis</small>
+                                <div class="form-group">
+                                    <label for="inputNanme4" class="form-label">Le solde pharmacie</label>
+                                    <input type="number" class="form-control" id="exampleInputName1"  formControlName="solde_pharmacie">
+                                </div>
+                                <br>
+                                <small *ngIf="exerciceForm.controls['solde_consultation'].touched && exerciceForm.controls['solde_consultation'].hasError('required')" class="text-danger">* Le solde pour les frais médicaux est requis</small>
+                                <div class="form-group">
+                                    <label for="inputNanme4" class="form-label">Le solde pour les frais médicaux</label>
+                                    <input type="number" class="form-control" id="exampleInputName1"  formControlName="solde_consultation">
+                                </div>
+                                <br>
+                                <small *ngIf="exerciceForm.controls['date_debut'].touched && exerciceForm.controls['date_debut'].hasError('required')" class="text-danger">* La date de début est requise</small>
+                                <div class="form-group">
+                                    <label for="inputNanme4" class="form-label">Date de début de l'exercice</label>
+                                    <input type="date" id="exampleInputName1" class="form-control"  formControlName="date_debut">
+                                </div>
+                                <br>
+                                <small *ngIf="exerciceForm.controls['date_fin'].touched && exerciceForm.controls['date_fin'].hasError('required')" class="text-danger">* La date de fin est requise</small>
+                                <div class="form-group">
+                                    <label for="inputNanme4" class="form-label">Date de fin de l'exercice</label>
+                                    <input type="date" id="exampleInputName1"  class="form-control"   formControlName="date_fin">
+                                </div>
+                                <br>
+                              <button type="submit" class="btn btn-primary me-2" (click)="Ajouter_exercice()" >Soumettre</button>
+                            </form>
+                          </div>
+                        </div>
+                      </div>   
+                    </div>
+                </div>  
+            </div>
+        </section>
+
+    </main><!-- End #main --> 
+</app-sidebar-admin>

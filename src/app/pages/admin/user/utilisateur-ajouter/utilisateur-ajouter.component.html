@@ -1,0 +1,66 @@
+<app-sidebar-admin>
+    <main id="main" class="main">
+
+        <section class="section">
+            <div class="row align-items-top">
+                <div class="container">
+                    <div class="page-inner">
+
+                      <div class="col-12 grid-margin stretch-card">
+                        <div class="card">
+                          <div class="card-body">
+                            <h4 class="card-title">Ajoutez des Utlisateurs </h4>
+                            <br>
+                            <form class="forms-sample" [formGroup]="userForm">
+                                <small *ngIf="userForm.controls['nom'].touched && userForm.controls['nom'].hasError('required')" class="text-danger">* Le nom est requis</small>
+                                <div class="form-group">
+                                    <label for="inputNanme4" class="form-label">Nom</label>
+                                    <input type="text" class="form-control" id="exampleInputName1"  formControlName="nom">
+                                </div>
+                                <br>
+                                <small *ngIf="userForm.controls['prenom'].touched && userForm.controls['prenom'].hasError('required')" class="text-danger">* Le prénom est requis</small>
+                                <div class="form-group">
+                                    <label for="inputNanme4" class="form-label">Prénom</label>
+                                    <input type="text" class="form-control" id="exampleInputName1" formControlName="prenom">
+                                </div>
+                                <br>
+                                <small *ngIf="userForm.controls['email'].touched && userForm.controls['email'].hasError('required')" class="text-danger">* L'email est requis</small>
+                                <div class="form-group">
+                                    <label for="inputNanme4" class="form-label">Email</label>
+                                    <input type="email" class="form-control" id="exampleInputName1"  formControlName="email">
+                                </div>
+                                <br>
+                                <small *ngIf="userForm.controls['role'].touched && userForm.controls['role'].hasError('required')" class="text-danger">* Le rôle est requis</small>
+                                <div class="form-group">
+                                    <label for="roleSelect" class="col-form-label">Sélectionner un rôle</label>
+                                    <select id="roleSelect" class="form-select" formControlName="role">
+                                        <option *ngFor="let role of roles;" [value]="role.name">{{ role.name }}</option>
+                                    </select>
+                                </div>
+                                <small *ngIf="userForm.controls['fonction_id'].touched && userForm.controls['fonction_id'].hasError('required')" class="text-danger">* La fonction est requis</small>
+                                <div class="form-group">
+                                    <label for="roleSelect" class="col-form-label">Sélectionner une fonction</label>
+                                    <select id="roleSelect" class="form-select" [(ngModel)]="selectedFonction" formControlName="fonction_id">
+                                        <option *ngFor="let fonction of fonctions;" [value]="fonction.id">{{ fonction.libelle }}</option>
+                                    </select>
+                                </div>
+                                <small *ngIf="userForm.controls['site_id'].touched && userForm.controls['site_id'].hasError('required')" class="text-danger">* Le site est requis</small>
+                                <div class="form-group">
+                                    <label for="roleSelect" class="col-form-label">Sélectionner un site</label>
+                                    <select id="roleSelect" class="form-select" [(ngModel)]="selectedSite" formControlName="site_id">
+                                        <option *ngFor="let site of sites;" [value]="site.id">{{ site.libelle }}</option>
+                                    </select>
+                                </div>
+                                <br>
+                              <button type="submit" class="btn btn-primary me-2" (click)="Ajouter_user()" >Soumettre</button>
+                            </form>
+                          </div>
+                        </div>
+                      </div>   
+                    </div>
+                </div>  
+            </div>
+        </section>
+
+    </main><!-- End #main --> 
+</app-sidebar-admin>

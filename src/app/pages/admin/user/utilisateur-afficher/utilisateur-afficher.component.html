@@ -1,0 +1,53 @@
+<app-sidebar-admin (searchPerformed)="handleSearchResults($event)">
+    <main id="main" class="main">
+
+        <section class="section">
+            <div class="col-12">
+                <div class="card recent-sales overflow-auto">
+                  <div class="card-body">
+                    <h5 class="card-title"> La liste des utilisateurs </h5> 
+                    <table class="table table-bordered" >
+                      <thead>
+                        <tr>
+                          <th scope="col">Nom</th>
+                          <th scope="col">Prénom</th>
+                          <th scope="col">Email</th>
+                          <th scope="col">Fonction</th>
+                          <th scope="col">Site</th>
+                          <th scope="col">Solde frais médicaux</th>
+                          <th scope="col">Solde pharmacie</th>
+                          <th scope="col">Statut</th>
+                          <th scope="col">Action</th>
+                        </tr>
+                      </thead>
+                      <tbody *ngFor="let user of users;">
+                        <tr>
+                          <td>{{user.nom}}</td>
+                          <td>{{user.prenom}}</td>
+                          <td>{{user.email}}</td>
+                          <td>{{user.fonction_id}}</td>
+                          <td>{{user.site_id}}</td>
+                          <td>{{user.solde_consultation}}</td>
+                          <td>{{user.solde_pharmacie}}</td>
+                          <td>{{user.statut_utilisateur}}</td>
+                          <td>
+                            <div class="form-button-action">
+                                <button type="button" data-bs-toggle="tooltip" title="Modifier" class="btn btn-link btn-primary btn-lg" data-original-title="Edit Task" (click)="Modifier_user(user.id)" >
+                                    <i class="fa fa-edit"></i>
+                                </button>
+                                <button type="button" data-bs-toggle="tooltip" title="Supprimer" class="btn  btn-outline-danger"data-original-title="Remove" (click)="Supprimer_user(user.id)"  >
+                                    <i class="fa fa-times"></i>
+                                </button>
+                            </div>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+            </div>
+        </section>
+
+    </main><!-- End #main --> 
+</app-sidebar-admin>
+

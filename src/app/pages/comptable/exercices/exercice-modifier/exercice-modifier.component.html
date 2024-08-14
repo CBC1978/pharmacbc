@@ -1,0 +1,56 @@
+<app-sidebar-admin>
+    <main id="main" class="main">
+        <section class="section">
+            <div class="row align-items-top">
+                <div class="container">
+                    <div class="page-inner">
+
+                      <div class="col-12 grid-margin stretch-card">
+                        <div class="card">
+                          <div class="card-body">
+                            <h4 class="card-title">Modifier un exercice</h4>
+                            <br>
+                            <form class="forms-sample" *ngIf="exercice">
+                
+                                <div class="form-group">
+                                    <label for="inputNanme4" class="form-label">Libellé</label>
+                                    <input type="text" class="form-control" id="exampleInputName1"  [(ngModel)]="exercice.libelle" name="libelle">
+                                </div>
+                                <br>
+                                <div class="form-group">
+                                    <label for="inputNanme4" class="form-label">Description</label>
+                                    <input type="text" class="form-control" id="exampleInputName1" [(ngModel)]="exercice.description" name="description">
+                                </div>
+                                <br>
+                                <div class="form-group">
+                                    <label for="inputNanme4" class="form-label">Le solde pharmacie</label>
+                                    <input type="number" class="form-control" id="exampleInputName1"  [(ngModel)]="exercice.solde_pharmacie" name="solde_pharmacie">
+                                </div>
+                                <br>
+                                <div class="form-group">
+                                    <label for="inputNanme4" class="form-label">Le solde pour les frais médicaux</label>
+                                    <input type="number" class="form-control" id="exampleInputName1"  [(ngModel)]="exercice.solde_consultation" name="solde_consultation">
+                                </div>
+                                <br>
+                                <div class="form-group">
+                                    <label for="inputNanme4" class="form-label">Date de début de l'exercice</label>
+                                    <input type="date" id="exampleInputName1" class="form-control"  [(ngModel)]="exercice.date_debut" name="date_debut">
+                                </div>
+                                <br>
+                                <div class="form-group">
+                                    <label for="inputNanme4" class="form-label">Date de fin de l'exercice</label>
+                                    <input type="date" id="exampleInputName1"  class="form-control"   [(ngModel)]="exercice.date_fin" name="date_fin">
+                                </div>
+                                <br>
+                              <button type="submit" class="btn btn-primary me-2" (click)="Save_updated()" > Modifier </button>
+                            </form>
+                          </div>
+                        </div>
+                      </div>   
+                    </div>
+                </div>  
+            </div>
+        </section>
+    </main><!-- End #main -->   
+</app-sidebar-admin>
+
