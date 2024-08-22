@@ -4,8 +4,8 @@
             <div class="col-12">
                 <div class="card recent-sales overflow-auto">
                     <div class="card-body">
-                        <h5 class="card-title">La liste des remboursements pour la pharmacie</h5>
-                        <button class="btn btn-danger btn-round" data-bs-toggle="modal" data-bs-target="#addRowModal" (click)="Pdf_remboursement_pharmacie()">
+                        <h5 class="card-title">La liste des remboursements pour les frais médicaux</h5>
+                        <button class="btn btn-danger btn-round" data-bs-toggle="modal" data-bs-target="#addRowModal" (click)="pdf_etat()">
                           <i class="fa fa-download"></i>
                             Générer l'état
                         </button>
@@ -14,22 +14,21 @@
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
-                                    <th scope="col">Nom</th>
+                                    <th scope="col">Matricule</th>
                                     <th scope="col">Prénom</th>
-                                    <th scope="col">Libellé</th>
                                     <th scope="col">Montant</th>
                                     <th scope="col">Date</th>
                                     <th scope="col">Statut</th>
                                     
                                 </tr>
                             </thead>
-                            <tbody *ngFor="let pharmacie of pharmacies;">
-                                <tr  *ngIf="pharmacie.statut_demande == 'validé'">
-                                    <td>{{pharmacie.date_nom}}</td>
-                                    <td>{{pharmacie.data_prenom}}</td>
-                                    <td>{{pharmacie.libelle}}</td>
-                                    <td>{{pharmacie.montant_demande}}</td>
-                                    <td>{{pharmacie.created_at}}</td>
+                            <tbody *ngFor="let etat of etats;">
+                                <tr>
+                                    <td>{{etat.id}}</td>
+                                    <td>{{etat.date_nom}}</td>
+                                    <td>{{etat.data_prenom}}</td>
+                                    <td>{{etat.montant_remboursement}}</td>
+                                    <td>{{etat.created_at| date:'dd/MM/yyyy, HH:mm:ss'}}</td>
                                     <td><span class="badge bg-danger"> Remboursée</span></td>
                                 </tr>
                             </tbody>

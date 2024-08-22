@@ -11,16 +11,18 @@
                     <h4 class="card-title">Demande de remboursement pour les frais médicaux </h4>
                     <br>
                     <form class="forms-sample" [formGroup]="consultationForm">
-                      <small *ngIf="consultationForm.controls['libelle'].touched && consultationForm.controls['libelle'].hasError('required')" class="text-danger">* Le libelle est requis</small>
+                      
                         <div class="form-group">
                             <label for="inputNanme4" class="form-label">Libellé</label>
                             <input type="text" class="form-control" id="exampleInputName1"  formControlName="libelle">
                         </div>
-                        <br>
-                        <small *ngIf="consultationForm.controls['description'].touched && consultationForm.controls['description'].hasError('required')" class="text-danger">* La description est requise</small>
-                        <div class="form-group">
-                            <label for="inputNanme4" class="form-label">Description</label>
-                            <input type="text" class="form-control" id="exampleInputName1" formControlName="description">
+                        <br *ngIf="sites.length>1">
+                        
+                        <div class="form-group" *ngIf="sites.length>1">
+                          <label for="roleSelect" class="col-form-label">Sélectionner un site</label>
+                          <select id="roleSelect" class="form-select" [(ngModel)]="selectedSite" formControlName="site_id">
+                              <option *ngFor="let site of sites;" [value]="site.id">{{ site.libelle }}</option>
+                          </select>
                         </div>
                         <br>
                         <div *ngIf="message" class="text-danger" role="alert">
@@ -33,7 +35,7 @@
                         </div>
                         <br>
                         <br>
-                      <button type="submit" class="btn btn-primary me-2" (click)="Ajouter_consultation()" >Soumettre</button>
+                      <button type="submit" class="btn btn-primary me-2"(click)="Ajouter_consultation()" >Soumettre</button>
                     </form>
                   </div>
                 </div>

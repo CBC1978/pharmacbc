@@ -35,6 +35,9 @@ import { ModifierPasswordComponent } from './pages/user/profil/modifier-password
 import { DasboardComponent } from './pages/sidebar/dasboard/dasboard.component';
 import { PharmacieAfficherUserComponent } from './pages/user/DemandePharmacie/pharmacie-afficher-user/pharmacie-afficher-user.component';
 import { HistoriqueAfficherComponent } from './pages/admin/historique/historique-afficher/historique-afficher.component';
+import { EtatAjouterComponent } from './pages/comptable/Etat/Consultation/etat-ajouter/etat-ajouter.component';
+import { EtatAfficherComponent } from './pages/comptable/Etat/Consultation/etat-afficher/etat-afficher.component';
+import { EtatRemboursementComponent } from './pages/comptable/Etat/Consultation/etat-remboursement/etat-remboursement.component';
 
 
 export const routes: Routes = [
@@ -110,6 +113,10 @@ export const routes: Routes = [
 
 
     {path:'historique_afficher', component:HistoriqueAfficherComponent},
+
+    {path:'etat_create', component:EtatAjouterComponent},
+    {path:'etat_afficher', component:EtatAfficherComponent},
+    { path:'etat_id/:id', component:EtatRemboursementComponent}
 
 
 

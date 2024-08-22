@@ -18,12 +18,6 @@
                                     <input type="text" class="form-control" id="exampleInputName1"  formControlName="libelle">
                                 </div>
                                 <br>
-                                <small *ngIf="exerciceForm.controls['description'].touched && exerciceForm.controls['description'].hasError('required')" class="text-danger">* La description est requise</small>
-                                <div class="form-group">
-                                    <label for="inputNanme4" class="form-label">Description</label>
-                                    <input type="text" class="form-control" id="exampleInputName1" formControlName="description">
-                                </div>
-                                <br>
                                 <small *ngIf="exerciceForm.controls['solde_pharmacie'].touched && exerciceForm.controls['solde_pharmacie'].hasError('required')" class="text-danger">* Le solde pharmacie est requis</small>
                                 <div class="form-group">
                                     <label for="inputNanme4" class="form-label">Le solde pharmacie</label>

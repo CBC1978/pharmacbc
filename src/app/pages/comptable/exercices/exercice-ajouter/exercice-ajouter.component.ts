@@ -24,7 +24,6 @@ export class ExerciceAjouterComponent {
   initForm() {
     this.exerciceForm = this.formBuilder.group({
       libelle            : ['', Validators.required],
-      description        : ['', Validators.required],
       solde_pharmacie    : ['', Validators.required],
       solde_consultation : ['', Validators.required],
       date_debut         : ['', Validators.required],

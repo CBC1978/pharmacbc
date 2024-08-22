@@ -18,11 +18,16 @@ export class AssignerPermssionComponent {
   permissions: any[] = [];
   role: any;
   selectedRoleId!: number;
+
+  firstHalfPermissions: any[] = [];
+  secondHalfPermissions: any[] = [];
   
   constructor(private router: Router,  private groupeService: GroupeServiceService) { }
   ngOnInit(): void {
     this.Afficher_role();
-    this.Afficher_permission()
+    this.Afficher_permission();
+    this.Diviser_permissions();
+
   }
 
 
@@ -52,6 +57,12 @@ export class AssignerPermssionComponent {
     );
 
     console.log('Permissions après changement :', this.permissions);
+  }
+
+  Diviser_permissions() {
+    const halfIndex = Math.ceil(this.permissions.length / 2);
+    this.firstHalfPermissions = this.permissions.slice(0, halfIndex);
+    this.secondHalfPermissions = this.permissions.slice(halfIndex);
   }
 
 

@@ -44,13 +44,22 @@
                                         <option *ngFor="let fonction of fonctions;" [value]="fonction.id">{{ fonction.libelle }}</option>
                                     </select>
                                 </div>
-                                <small *ngIf="userForm.controls['site_id'].touched && userForm.controls['site_id'].hasError('required')" class="text-danger">* Le site est requis</small>
-                                <div class="form-group">
-                                    <label for="roleSelect" class="col-form-label">Sélectionner un site</label>
-                                    <select id="roleSelect" class="form-select" [(ngModel)]="selectedSite" formControlName="site_id">
-                                        <option *ngFor="let site of sites;" [value]="site.id">{{ site.libelle }}</option>
-                                    </select>
+                                
+                                <div formArrayName="sites">
+                                    <div *ngFor="let siteControl of sites.controls; let i = index">
+                                        <label for="siteSelect{{i}}" class="col-form-label">Sélectionner un site</label>
+                                        <div [formGroupName]="i" class="form-group d-flex align-items-center">
+                                            
+                                            <select id="siteSelect{{i}}" class="form-select me-2" formControlName="site_id">
+                                                <option *ngFor="let site of sitess" [value]="site.id">{{ site.libelle }}</option>
+                                            </select>
+                                            <button type="button" (click)="removeSiteSelection(i)" class="btn btn-danger btn-sm me-2"><i class="fas fa-trash-alt"></i></button>
+                                            <button type="button" (click)="addSiteSelection()" class="btn btn-primary btn-sm"><i class="fas fa-plus"></i></button>
+                                        </div>
+                                    </div>
+                                    
                                 </div>
+                                
                                 <br>
                               <button type="submit" class="btn btn-primary me-2" (click)="Ajouter_user()" >Soumettre</button>
                             </form>

@@ -54,7 +54,12 @@ export class GroupeServiceService {
   {
     return this.http.get<any[]>(`${environment.apiUrl}/site/get`);
   }
+  
 
+  Read_user_site(): Observable<any>
+  {
+    return this.http.get<any[]>(`${environment.apiUrl}/site/user`);
+  }
   Updated_site(site_id: number, site: any): Observable<any> {
     return this.http.put(`${environment.apiUrl}/site/update/${site_id}`, site);
   }

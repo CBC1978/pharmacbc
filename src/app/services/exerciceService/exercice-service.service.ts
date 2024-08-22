@@ -39,4 +39,64 @@ export class ExerciceServiceService {
   Cloturer_exercice(id: number, body: any | null): Observable<any>{
     return this.http.put(`${environment.apiUrl}/exercice/cloturer/${id}`, body);
   }
+
+
+
+  //Etat consultation
+  Create_etat(etat:any):Observable<any>{
+    return this.http.post<any[]>(`${environment.apiUrl}/etat/create`,etat);
+  }
+
+  Read_etat_consultation(): Observable<any>
+  {
+    return this.http.get<any[]>(`${environment.apiUrl}/etat/afficher`);
+  }
+
+  Get_etat_id_consultation(id: number): Observable<any>{
+    return this.http.get<any>(`${environment.apiUrl}/etat/show/${id}`);
+  }
+
+  Read_etat_remboursement_consultation(id: number): Observable<any>
+  {
+    return this.http.get<any[]>(`${environment.apiUrl}/etat_remboursement/afficher/${id}`);
+  }
+
+  Generate_pdf_etat_consultation(id: number): Observable<Blob>
+  {
+    const httpOptions = {
+      // Permet d'indiquer que la réponse doit être traitée comme un Blob
+      responseType: 'blob' as 'json', 
+    };
+    return this.http.get<Blob>(`${environment.apiUrl}/etat/pdf/${id}`, httpOptions);
+  }
+
+
+
+  //Etat pharmacie
+  Create_etat_pharmacie(etat:any):Observable<any>{
+    return this.http.post<any[]>(`${environment.apiUrl}/etat/create`,etat);
+  }
+
+  Read_etat_pharmacie(): Observable<any>
+  {
+    return this.http.get<any[]>(`${environment.apiUrl}/etat/afficher/parmacie`);
+  }
+
+  Get_etat_id_pharmacie(id: number): Observable<any>{
+    return this.http.get<any>(`${environment.apiUrl}/etat/show/parmacie/${id}`);
+  }
+
+  Read_etat_remboursement_pharmacie(id: number): Observable<any>
+  {
+    return this.http.get<any[]>(`${environment.apiUrl}/etat_remboursement/afficher/parmacie/${id}`);
+  }
+
+  Generate_pdf_etat_pharmacie(id: number): Observable<Blob>
+  {
+    const httpOptions = {
+      // Permet d'indiquer que la réponse doit être traitée comme un Blob
+      responseType: 'blob' as 'json', 
+    };
+    return this.http.get<Blob>(`${environment.apiUrl}/etat/pdf/parmacie/${id}`, httpOptions);
+  }
 }

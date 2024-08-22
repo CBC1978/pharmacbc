@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { SidebarAdminComponent } from '../../../sidebar/sidebar-admin/sidebar-admin.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { NgFor, NgIf, UpperCasePipe } from '@angular/common';
+import { CommonModule, NgFor, NgIf, UpperCasePipe } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ConsultationServiceService } from '../../../../services/consultatonService/consultation-service.service';
 
 @Component({
   selector: 'app-consultation-afficher',
   standalone: true,
-  imports: [SidebarAdminComponent,ReactiveFormsModule, NgFor, NgIf, UpperCasePipe,FormsModule],
+  imports: [SidebarAdminComponent,ReactiveFormsModule, NgFor, NgIf, UpperCasePipe,FormsModule,CommonModule],
   templateUrl: './consultation-afficher.component.html',
   styleUrl: './consultation-afficher.component.css'
 })

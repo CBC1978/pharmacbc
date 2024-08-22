@@ -13,8 +13,9 @@
                           <th scope="col">Prénom</th>
                           <th scope="col">Email</th>
                           <th scope="col">Fonction</th>
-                          <th scope="col">Site</th>
-                          <th scope="col">Solde frais médicaux</th>
+                          <th scope="col">Rôle</th>
+                          <th scope="col">site</th>
+                          <th scope="col">Solde consultation</th>
                           <th scope="col">Solde pharmacie</th>
                           <th scope="col">Statut</th>
                           <th scope="col">Action</th>
@@ -26,7 +27,11 @@
                           <td>{{user.prenom}}</td>
                           <td>{{user.email}}</td>
                           <td>{{user.fonction_id}}</td>
-                          <td>{{user.site_id}}</td>
+                          <td>{{user.role}}</td>
+                          <td>
+                            <div *ngFor="let site of user.sites">
+                              {{ site.libelle }}
+                            </div>
                           <td>{{user.solde_consultation}}</td>
                           <td>{{user.solde_pharmacie}}</td>
                           <td>{{user.statut_utilisateur}}</td>

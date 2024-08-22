@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RouterOutlet, RouterLink, RouterLinkActive, Router } from '@angular/router';
 import { SidebarAdminComponent } from '../../../sidebar/sidebar-admin/sidebar-admin.component';
 import { UserServiceService } from '../../../../services/authService/user-service.service';
@@ -16,7 +16,7 @@ import { GroupeServiceService } from '../../../../services/groupeService/groupe-
 export class UtilisateurAjouterComponent {
   userForm!: FormGroup;
   roles: any[] = [];
-  sites: any[] = [];
+  sitess: any[] = [];
   fonctions: any[] = [];
   selectedRole!: string;
   selectedFonction!: number;
@@ -33,15 +33,32 @@ export class UtilisateurAjouterComponent {
 
   initForm() {
     this.userForm = this.formBuilder.group({
-      nom            : ['', Validators.required],
+      nom           : ['', Validators.required],
       prenom        : ['', Validators.required],
-      email    : ['', Validators.required],
-      role: ['', Validators.required],
-      fonction_id         : ['', Validators.required],
-      site_id           : ['', Validators.required]
+      email         : ['', Validators.required],
+      role          : ['', Validators.required],
+      fonction_id   : ['', Validators.required],
+      sites         : this.formBuilder.array([this.createSiteSelection()])
     });
   }
 
+  createSiteSelection(): FormGroup {
+    return this.formBuilder.group({
+      site_id: ['', Validators.required]
+    });
+  }
+
+  get sites() {
+    return this.userForm.get('sites') as FormArray;
+  }
+
+  addSiteSelection() {
+    this.sites.push(this.createSiteSelection());
+  }
+
+  removeSiteSelection(index: number) {
+    this.sites.removeAt(index);
+  }
   Ajouter_user() {
     if(this.userForm.valid){
       this.userService.register(this.userForm.value).subscribe(response => {
@@ -76,7 +93,7 @@ export class UtilisateurAjouterComponent {
   Afficher_site() {
     this.groupeService.Read_site().subscribe(response => {
       console.log(response); // Affiche les données reçues depuis l'API
-      this.sites = response.data;
+      this.sitess = response.data;
     }); 
   }
   Afficher_fonction() {
