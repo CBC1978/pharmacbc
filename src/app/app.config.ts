@@ -7,6 +7,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { TockenInterceptorProvider } from './auth.interceptor';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
+
+
 export const appConfig: ApplicationConfig = {
   providers: [
     provideRouter(routes), 
