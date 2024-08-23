@@ -1,1 +1,44 @@
-<p>etat-pharmacie-afficher works!</p>
+<app-sidebar-admin (searchPerformed)="handleSearchResults($event)">
+    <main id="main" class="main">
+
+        <section class="section">
+            <div class="col-12">
+                <div class="card recent-sales overflow-auto">
+                  <div class="card-body">
+                    <h5 class="card-title"> La liste des etats pour la pharmacie</h5> 
+                    <table class="table table-bordered">
+                      <thead>
+                        <tr>
+                          <th scope="col">La date de début</th>
+                          <th scope="col">La date de fin</th>
+                          <th scope="col">La date de création</th>
+                          <th scope="col">Action</th>
+                        </tr>
+                      </thead>
+                      <tbody *ngFor="let etat of etats;">
+                        <tr>
+                          <td>{{etat.date_debut}}</td>
+                          <td>{{etat.date_fin}}</td>
+                          <td>{{etat.date_generation}}</td>
+                          <td>
+                            <div class="form-button-action">
+                                <button type="button" data-bs-toggle="tooltip" title="Afficher les remboursements de l'état" class="btn btn-link btn-primary btn-lg"  (click)="etat_ids(etat.id)" >
+                                    <i class="fa fa-eye"></i>
+                                </button>
+                                <button type="button" data-bs-toggle="tooltip" title="Télécharger les remboursements de l'état" class="btn btn-danger btn-round" (click)="pdf_etat(etat.id)">
+                                    <i class="fa fa-download"></i>
+                                </button>
+                            </div>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+  
+                </div>
+            </div>
+        </section>
+
+    </main><!-- End #main --> 
+</app-sidebar-admin>
+

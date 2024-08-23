@@ -74,7 +74,7 @@ export class ExerciceServiceService {
 
   //Etat pharmacie
   Create_etat_pharmacie(etat:any):Observable<any>{
-    return this.http.post<any[]>(`${environment.apiUrl}/etat/create`,etat);
+    return this.http.post<any[]>(`${environment.apiUrl}/etat/create/parmacie`,etat);
   }
 
   Read_etat_pharmacie(): Observable<any>

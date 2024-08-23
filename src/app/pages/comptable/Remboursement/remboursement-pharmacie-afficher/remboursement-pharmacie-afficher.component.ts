@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { PharmacieServiceService } from '../../../../services/pharmacieService/pharmacie-service.service';
 import { Router } from '@angular/router';
-import { NgFor, NgIf, UpperCasePipe } from '@angular/common';
+import { CommonModule, NgFor, NgIf, UpperCasePipe } from '@angular/common';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { SidebarAdminComponent } from '../../../sidebar/sidebar-admin/sidebar-admin.component';
 
 @Component({
   selector: 'app-remboursement-pharmacie-afficher',
   standalone: true,
-  imports: [SidebarAdminComponent,ReactiveFormsModule, NgFor, NgIf, UpperCasePipe,FormsModule],
+  imports: [SidebarAdminComponent,ReactiveFormsModule, NgFor, NgIf, UpperCasePipe,FormsModule,CommonModule],
   templateUrl: './remboursement-pharmacie-afficher.component.html',
   styleUrl: './remboursement-pharmacie-afficher.component.css'
 })
@@ -22,15 +22,14 @@ export class RemboursementPharmacieAfficherComponent implements OnInit {
     this.Afficher_remboursement();
     
   }
- 
+
 
   Afficher_remboursement() {
-    this.remboursement_pharmacieService.Read_pharmacie_comptable().subscribe(response => {
+    this.remboursement_pharmacieService.Read_remboursement_comptable().subscribe(response => {
       console.log(response); // Affiche les données reçues depuis l'API
       this.pharmacies = response.data;
     }); 
   }
-
 
   handleSearchResults(results: any[]){
     this.pharmacies = results; // Met à jour les utilisateurs affichés avec les résultats de la recherche
@@ -50,6 +49,10 @@ export class RemboursementPharmacieAfficherComponent implements OnInit {
       document.body.removeChild(a);
     });
 
+  }
+
+  etat() { 
+    this.router.navigateByUrl('/etat_create')
   }
 
 }

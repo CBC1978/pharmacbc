@@ -4,10 +4,10 @@
             <div class="col-12">
                 <div class="card recent-sales overflow-auto">
                     <div class="card-body">
-                        <h5 class="card-title">La liste des remboursements pour la pharmacie</h5>
-                        <button class="btn btn-danger btn-round" data-bs-toggle="modal" data-bs-target="#addRowModal" (click)="Pdf_remboursement_pharmacie()">
-                          <i class="fa fa-download"></i>
-                            Générer l'état
+                        <h5 class="card-title">La liste des remboursements pour les frais médicaux</h5>
+                        <button class="btn btn-danger btn-round" data-bs-toggle="modal" data-bs-target="#addRowModal" (click)="etat()">
+                          <i class="fa fa-plus"></i>
+                            Créer l'état
                         </button>
                           <br>
                           <br>
@@ -24,12 +24,12 @@
                                 </tr>
                             </thead>
                             <tbody *ngFor="let pharmacie of pharmacies;">
-                                <tr  *ngIf="pharmacie.statut_demande == 'validé'">
+                                <tr>
                                     <td>{{pharmacie.date_nom}}</td>
                                     <td>{{pharmacie.data_prenom}}</td>
                                     <td>{{pharmacie.libelle}}</td>
-                                    <td>{{pharmacie.montant_demande}}</td>
-                                    <td>{{pharmacie.created_at}}</td>
+                                    <td>{{pharmacie.montant_remboursement}}</td>
+                                    <td>{{pharmacie.created_at| date:'dd/MM/yyyy, HH:mm:ss'}}</td>
                                     <td><span class="badge bg-danger"> Remboursée</span></td>
                                 </tr>
                             </tbody>

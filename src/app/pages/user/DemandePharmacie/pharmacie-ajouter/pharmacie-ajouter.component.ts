@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { PharmacieServiceService } from '../../../../services/pharmacieService/pharmacie-service.service';
 import { SidebarAdminComponent } from '../../../sidebar/sidebar-admin/sidebar-admin.component';
 import { HttpErrorResponse } from '@angular/common/http';
+import { GroupeServiceService } from '../../../../services/groupeService/groupe-service.service';
 
 @Component({
   selector: 'app-pharmacie-ajouter',
@@ -16,16 +17,19 @@ import { HttpErrorResponse } from '@angular/common/http';
 export class PharmacieAjouterComponent {
   pharmacieForm!: FormGroup;
   message: string = '';
-  constructor(private router: Router, private formBuilder: FormBuilder, private pharmacieService: PharmacieServiceService) { }
+  sites: any[] = [];
+  selectedSite!: number;
+  constructor(private router: Router, private formBuilder: FormBuilder, private pharmacieService: PharmacieServiceService, private groupeService: GroupeServiceService) { }
 
   ngOnInit():void {
     this.initForm();
+    this.Afficher_site();
   }
 
   initForm() {
     this.pharmacieForm = this.formBuilder.group({
-      libelle            : ['', Validators.required],
-      description        : ['', Validators.required],
+      libelle            : [''],
+      site_id            : [''],
       montant_demande    : ['', Validators.required],
     });
   }
@@ -36,7 +40,7 @@ export class PharmacieAjouterComponent {
         console.log(response); // Affiche les données reçues depuis l'API
         setTimeout(() => {
           this.pharmacieForm.reset();
-        },2000);
+        },5000);
       },
       (error: HttpErrorResponse) => {
         console.error(error);
@@ -50,7 +54,7 @@ export class PharmacieAjouterComponent {
         }
         setTimeout(() => {
           this.message = '';
-        }, 3000);
+        }, 5000);
       }
     ); 
       
@@ -64,5 +68,12 @@ export class PharmacieAjouterComponent {
       const control = this.pharmacieForm.get(field);
       control?.markAsTouched({ onlySelf: true });
     });
+  }
+
+  Afficher_site() {
+    this.groupeService.Read_user_site().subscribe(response => {
+      console.log(response); // Affiche les données reçues depuis l'API
+      this.sites = response.sites_user;
+    }); 
   }
 }

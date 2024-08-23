@@ -1,49 +1,50 @@
 <app-sidebar-admin>
-    <main id="main" class="main">
+  <main id="main" class="main">
+      <section class="section">
+          <div class="row align-items-top">
+              <div class="container">
+                  <div class="page-inner">
 
-        <section class="section">
-            <div class="row align-items-top">
-                <div class="container">
-                    <div class="page-inner">
-
-                      <div class="col-12 grid-margin stretch-card">
-                        <div class="card">
-                          <div class="card-body">
-                            <h4 class="card-title">Modifier un pharmacie</h4>
-                            <br>
-                            <form class="forms-sample" *ngIf="pharmacie">
-                
-                                <div class="form-group">
-                                    <label for="inputNanme4" class="form-label">Libellé</label>
-                                    <input type="text" class="form-control" id="exampleInputName1"  [(ngModel)]="pharmacie.libelle" name="libelle">
-                                </div>
-                                <br>
-                                <div class="form-group">
-                                    <label for="inputNanme4" class="form-label">Description</label>
-                                    <input type="text" class="form-control" id="exampleInputName1" [(ngModel)]="pharmacie.description" name="description">
-                                </div>
-                                <br>
-                                <div *ngIf="message" class="text-danger" role="alert">
-                                  *{{ message }}
-                                </div>
-                                <div class="form-group">
-                                    <label for="inputNanme4" class="form-label">Le solde pharmacie</label>
-                                    <input type="number" class="form-control" id="exampleInputName1"  [(ngModel)]="pharmacie.montant_demande" name="solde_pharmacie">
-                                </div>
-                                <br>
-                              <button type="submit" class="btn btn-primary me-2" (click)="Save_updated()" > Modifier </button>
-                            </form>
-                          </div>
+                    <div class="col-12 grid-margin stretch-card">
+                      <div class="card">
+                        <div class="card-body">
+                          <h4 class="card-title">Modifier la demande de remboursement</h4>
+                          <br>
+                          <form class="forms-sample" *ngIf="pharmacie">
+              
+                              <div class="form-group">
+                                  <label for="inputNanme4" class="form-label">Libellé</label>
+                                  <input type="text" class="form-control" id="exampleInputName1"  [(ngModel)]="pharmacie.libelle" name="libelle">
+                              </div>
+                              <br *ngIf="sites.length>1">
+                              <div class="form-group" *ngIf="sites.length>1">
+                                <label for="siteSelect" class="col-form-label">Sélectionner un site</label>
+                                <select id="siteSelect" class="form-select" [(ngModel)]="pharmacie.site_id" name="site_id">
+                                  <option *ngFor="let site of sites" [value]="site.id">{{ site.libelle }}</option>
+                                </select>
+                              </div>
+                              <br>
+                              <div *ngIf="message" class="text-danger" role="alert">
+                                *{{ message }}
+                              </div>
+                              <div class="form-group">
+                                  <label for="inputNanme4" class="form-label">Le solde pour la pharmacie</label>
+                                  <input type="number" class="form-control" id="exampleInputName1"  [(ngModel)]="pharmacie.montant_demande" name="montant_demande">
+                              </div>
+                              <br>
+                            <button type="submit" class="btn btn-primary me-2" (click)="Save_updated()" > Modifier </button>
+                          </form>
                         </div>
-                      </div>   
-                    </div>
-                </div>  
-            </div>
-        </section>
+                      </div>
+                    </div>   
+                  </div>
+              </div>  
+          </div>
+      </section>
 
-    </main><!-- End #main --> 
+  </main><!-- End #main --> 
 
 
-    
+  
 </app-sidebar-admin>
 

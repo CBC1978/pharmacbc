@@ -1,1 +1,38 @@
-<p>etat-pharmacie-ajouter works!</p>
+<app-sidebar-admin>
+    <main id="main" class="main">
+
+        <section class="section">
+            <div class="row align-items-top">
+                <div class="container">
+                    <div class="page-inner">
+
+                      <div class="col-12 grid-margin stretch-card">
+                        <div class="card">
+                          <div class="card-body">
+                            <h4 class="card-title">Ajoutez un état pour la pharmacie</h4>
+                            <br>
+                            <form class="forms-sample" [formGroup]="etatForm">
+                                <small *ngIf="etatForm.controls['date_debut'].touched && etatForm.controls['date_debut'].hasError('required')" class="text-danger">* La date de début est requise</small>
+                                <div class="form-group">
+                                    <label for="inputNanme4" class="form-label">Date de début de l'état</label>
+                                    <input type="date" id="exampleInputName1" class="form-control"  formControlName="date_debut">
+                                </div>
+                                <br>
+                                <small *ngIf="etatForm.controls['date_fin'].touched && etatForm.controls['date_fin'].hasError('required')" class="text-danger">* La date de fin est requise</small>
+                                <div class="form-group">
+                                    <label for="inputNanme4" class="form-label">Date de fin de l'état</label>
+                                    <input type="date" id="exampleInputName1"  class="form-control"   formControlName="date_fin">
+                                </div>
+                                <br>
+                              <button type="submit" class="btn btn-primary me-2" (click)="Ajouter_etat()" >Soumettre</button>
+                            </form>
+                          </div>
+                        </div>
+                      </div>   
+                    </div>
+                </div>  
+            </div>
+        </section>
+
+    </main><!-- End #main --> 
+</app-sidebar-admin>

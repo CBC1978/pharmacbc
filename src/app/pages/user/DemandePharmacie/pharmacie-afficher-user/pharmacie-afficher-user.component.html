@@ -1,55 +1,55 @@
 <app-sidebar-admin (searchPerformed)="handleSearchResults($event)">
-    <main id="main" class="main">
+  <main id="main" class="main">
 
-        <section class="section">
-            <div class="col-12">
-                <div class="card recent-sales overflow-auto">
-                  <div class="card-body">
-                    <h5 class="card-title"> La liste des demandes de remboursement pour la pharmacie </h5> 
-                    <button class="btn btn-danger btn-round" data-bs-toggle="modal" data-bs-target="#addRowModal" (click)="Pdf_remboursement_pharmacie()">
-                        <i class="fa fa-download"></i>
-                          Générer l'état
-                      </button>
-                        <br>
-                        <br>
-                    <table class="table table-bordered">
-                      <thead>
-                        <tr>
-                          <th scope="col">Libelle</th>
-                          <th scope="col">Le montant de la demande</th>
-                          <th scope="col">Statut de la demande</th>
-                          <th scope="col">Action</th>
-                        </tr>
-                      </thead>
-                      <tbody *ngFor="let pharmacie of pharmacies;">
-                        <tr>
-                          <td>{{pharmacie.libelle}}</td>
-                          <td>{{pharmacie.montant_demande}}</td>
-                          <td>
-                            <p *ngIf="pharmacie.statut_demande === 'non validé'; else valid">En cours de traitement</p>
-                            <ng-template #valid ><p> Validé</p></ng-template>
-                          </td>
+      <section class="section">
+          <div class="col-12">
+              <div class="card recent-sales overflow-auto">
+                <div class="card-body">
+                  <h5 class="card-title"> La liste des demandes de remboursement pour la pharmacie</h5> 
+                  <button class="btn btn-danger btn-round" data-bs-toggle="modal" data-bs-target="#addRowModal" (click)="Pdf_remboursement_pharmacie()">
+                      <i class="fa fa-download"></i>
+                        Générer l'état
+                    </button>
+                      <br>
+                      <br>
+                  <table class="table table-bordered">
+                    <thead>
+                      <tr>
+                        <th scope="col">Libelle</th>
+                        <th scope="col">Le montant de la demande</th>
+                        <th scope="col">Statut de la demande</th>
+                        <th scope="col">Action</th>
+                      </tr>
+                    </thead>
+                    <tbody *ngFor="let pharmacie of pharmacies;">
+                      <tr>
+                        <td>{{pharmacie.libelle}}</td>
+                        <td>{{pharmacie.montant_demande}}</td>
+                        <td>
+                          <p *ngIf="pharmacie.statut_demande === 'non validé'; else valid">En cours de traitement</p>
+                          <ng-template #valid ><p> Validé</p></ng-template>
+                        </td>
 
-                          <td *ngIf="pharmacie.statut_demande == 'non validé'" >
-                            <div class="form-button-action">
-                                <button type="button" data-bs-toggle="tooltip" title="Modifier" class="btn btn-link btn-primary btn-lg" data-original-title="Edit Task" (click)="Modifier_pharmacie(pharmacie.id)" >
-                                    <i class="fa fa-edit"></i>
-                                </button>
-                                <button type="button" data-bs-toggle="tooltip" title="Supprimer" class="btn  btn-outline-danger"data-original-title="Remove" (click)="Supprimer_pharmacie(pharmacie.id)" >
-                                    <i class="fa fa-times"></i>
-                                </button>
-                            </div>
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-  
+                        <td *ngIf="pharmacie.statut_demande == 'non validé'" >
+                          <div class="form-button-action">
+                              <button type="button" data-bs-toggle="tooltip" title="Modifier" class="btn btn-link btn-primary btn-lg" data-original-title="Edit Task" (click)="Modifier_pharmacie(pharmacie.id)" >
+                                  <i class="fa fa-edit"></i>
+                              </button>
+                              <button type="button" data-bs-toggle="tooltip" title="Supprimer" class="btn  btn-outline-danger"data-original-title="Remove" (click)="Supprimer_pharmacie(pharmacie.id)" >
+                                  <i class="fa fa-times"></i>
+                              </button>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
                 </div>
-            </div>
-        </section>
 
-    </main><!-- End #main --> 
+              </div>
+          </div>
+      </section>
+
+  </main><!-- End #main --> 
 </app-sidebar-admin>
 
 

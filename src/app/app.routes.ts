@@ -38,6 +38,9 @@ import { HistoriqueAfficherComponent } from './pages/admin/historique/historique
 import { EtatAjouterComponent } from './pages/comptable/Etat/Consultation/etat-ajouter/etat-ajouter.component';
 import { EtatAfficherComponent } from './pages/comptable/Etat/Consultation/etat-afficher/etat-afficher.component';
 import { EtatRemboursementComponent } from './pages/comptable/Etat/Consultation/etat-remboursement/etat-remboursement.component';
+import { EtatPharmacieAjouterComponent } from './pages/comptable/Etat/Pharmacie/etat-pharmacie-ajouter/etat-pharmacie-ajouter.component';
+import { EtatPharmacieAfficherComponent } from './pages/comptable/Etat/Pharmacie/etat-pharmacie-afficher/etat-pharmacie-afficher.component';
+import { EtatPharmacieRembComponent } from './pages/comptable/Etat/Pharmacie/etat-pharmacie-remb/etat-pharmacie-remb.component';
 
 
 export const routes: Routes = [
@@ -116,7 +119,13 @@ export const routes: Routes = [
 
     {path:'etat_create', component:EtatAjouterComponent},
     {path:'etat_afficher', component:EtatAfficherComponent},
-    { path:'etat_id/:id', component:EtatRemboursementComponent}
+    { path:'etat_id/:id', component:EtatRemboursementComponent}, 
+
+
+
+    {path:'etat_create_pharmacie', component:EtatPharmacieAjouterComponent},
+    {path:'etat_afficher_pharmacie', component:EtatPharmacieAfficherComponent},
+    { path:'etat_id_pharmacie/:id', component:EtatPharmacieRembComponent}
 
 
 

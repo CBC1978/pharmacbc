@@ -5,6 +5,7 @@ import { GroupeServiceService } from '../../../../services/groupeService/groupe-
 import { CommonModule } from '@angular/common';
 import { SidebarAdminComponent } from '../../../sidebar/sidebar-admin/sidebar-admin.component';
 
+
 @Component({
   selector: 'app-fonction-ajouter',
   standalone: true,
