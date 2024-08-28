@@ -11,7 +11,9 @@
                     <h4 class="card-title">Demande de remboursement pour la Consultation</h4>
                     <br>
                     <form class="forms-sample" [formGroup]="consultationForm">
-                      
+                      <div *ngIf="mess" class="alert alert-success">
+                        {{ mess }}
+                      </div>
                         <div class="form-group">
                             <label for="inputNanme4" class="form-label">Libellé</label>
                             <input type="text" class="form-control" id="exampleInputName1"  formControlName="libelle">

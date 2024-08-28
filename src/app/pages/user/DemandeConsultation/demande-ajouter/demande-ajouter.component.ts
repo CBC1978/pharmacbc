@@ -17,6 +17,7 @@ import { GroupeServiceService } from '../../../../services/groupeService/groupe-
 export class DemandeAjouterComponent {
   consultationForm!: FormGroup;
   message: string = '';
+  mess: string = '';
   sites: any[] = [];
   selectedSite!: number;
 
@@ -39,9 +40,11 @@ export class DemandeAjouterComponent {
     if (this.consultationForm.valid) {
       this.consultationService.Create_consultation(this.consultationForm.value).subscribe(response => {
         console.log(response); // Affiche les données reçues depuis l'API
+        this.mess = response.message
         setTimeout(() => {
+          this.mess = '';
           this.consultationForm.reset();
-        },5000);
+        },3000);
       },
       (error: HttpErrorResponse) => {
         console.error(error);

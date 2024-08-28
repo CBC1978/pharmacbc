@@ -17,6 +17,7 @@ import { GroupeServiceService } from '../../../../services/groupeService/groupe-
 export class PharmacieAjouterComponent {
   pharmacieForm!: FormGroup;
   message: string = '';
+  mess: string = '';
   sites: any[] = [];
   selectedSite!: number;
   constructor(private router: Router, private formBuilder: FormBuilder, private pharmacieService: PharmacieServiceService, private groupeService: GroupeServiceService) { }
@@ -38,7 +39,9 @@ export class PharmacieAjouterComponent {
     if (this.pharmacieForm.valid) {
       this.pharmacieService.Create_pharmacie(this.pharmacieForm.value).subscribe(response => {
         console.log(response); // Affiche les données reçues depuis l'API
+        this.mess = response.message
         setTimeout(() => {
+          this.mess = '';
           this.pharmacieForm.reset();
         },5000);
       },

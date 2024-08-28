@@ -200,7 +200,7 @@
        <!--Les permissions-->
        <li class="nav-item"*ngIf="permissions.includes('Afficher les permissions')">
         <a class="nav-link collapsed" data-bs-target="#permissions-nav" data-bs-toggle="collapse" href="#">
-          <i class="fas fa-prescription-bottle fa-2x"></i><span>Gérer les permissions</span><i class="bi bi-chevron-down ms-auto"></i>
+          <i class="fa fa-key"></i><span>Gérer les permissions</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="permissions-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           
@@ -217,7 +217,7 @@
       <!--Les fonctions-->
       <li class="nav-item" *ngIf="permissions.includes('Créer une fonction') || permissions.includes('Afficher les fonctions')">
         <a class="nav-link collapsed" data-bs-target="#fonctions-nav" data-bs-toggle="collapse" href="#">
-          <i class="fas fa-prescription-bottle fa-2x"></i><span>Gérer les fonctions</span><i class="bi bi-chevron-down ms-auto"></i>
+          <i class="fa fa-user-tie"></i><span>Gérer les fonctions</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="fonctions-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li *ngIf="permissions.includes('Créer une fonction')">
@@ -237,7 +237,7 @@
       <!--Les sites -->
       <li class="nav-item" *ngIf="permissions.includes('Créer un site') || permissions.includes('Afficher les sites')">
         <a class="nav-link collapsed" data-bs-target="#sites-nav" data-bs-toggle="collapse" href="#">
-          <i class="fas fa-prescription-bottle fa-2x"></i><span>Gérer les sites</span><i class="bi bi-chevron-down ms-auto"></i>
+          <i class="fa fa-mountain"></i><span>Gérer les sites</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="sites-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li *ngIf="permissions.includes('Créer un site')">
@@ -304,7 +304,7 @@
        <!--Les remboursemnts pharmacies -->
        <li class="nav-item" *ngIf="permissions.includes('Afficher les remboursements frais médicaux')">
          <a class="nav-link collapsed" data-bs-target="#medi-nav" data-bs-toggle="collapse" href="#">
-           <i class="fas fa-prescription-bottle fa-2x"></i><span>Consultation</span><i class="bi bi-chevron-down ms-auto"></i>
+           <i class="fas fa-file-medical fa-2x"></i><span>Consultation</span><i class="bi bi-chevron-down ms-auto"></i>
          </a>
          <ul id="medi-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
            <li>
@@ -321,7 +321,7 @@
       <li class="nav-heading" *ngIf="permissions.includes('Afficher les exercices')">Gérer les exercices </li>
       <li class="nav-item" *ngIf="permissions.includes('Afficher les exercices')">
         <a class="nav-link collapsed" data-bs-target="#exercies-nav" data-bs-toggle="collapse" href="#">
-          <i class="fas fa-user-shield"></i><span>Les exercices </span><i class="bi bi-chevron-down ms-auto"></i>
+          <i class="fa fa-book-open"></i><span>Les exercices </span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="exercies-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li *ngIf="permissions.includes('Créer un exercice')">
@@ -342,7 +342,7 @@
       <li class="nav-heading" *ngIf="permissions.includes('Afficher les etats frais médicaux')">Gérer les états </li>
       <li class="nav-item" *ngIf="permissions.includes('Afficher les etats pharmacie')">
         <a class="nav-link collapsed" data-bs-target="#etats-nav" data-bs-toggle="collapse" href="#">
-          <i class="fas fa-user-shield"></i><span>Pharmacie</span><i class="bi bi-chevron-down ms-auto"></i>
+          <i class="fas fa-prescription-bottle fa-2x"></i><span>Pharmacie</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="etats-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li *ngIf="permissions.includes('Créer un etat pharmacie')">
@@ -359,7 +359,7 @@
       </li>
       <li class="nav-item" *ngIf="permissions.includes('Afficher les etats frais médicaux')">
         <a class="nav-link collapsed" data-bs-target="#etatspharma-nav" data-bs-toggle="collapse" href="#">
-          <i class="fas fa-user-shield"></i><span>Consultation </span><i class="bi bi-chevron-down ms-auto"></i>
+          <i class="fas fa-file-medical fa-2x"></i><span>Consultation </span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="etatspharma-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li *ngIf="permissions.includes('Créer un etat frais médicaux')">

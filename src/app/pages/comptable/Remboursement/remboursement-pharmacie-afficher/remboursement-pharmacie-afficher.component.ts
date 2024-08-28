@@ -52,7 +52,7 @@ export class RemboursementPharmacieAfficherComponent implements OnInit {
   }
 
   etat() { 
-    this.router.navigateByUrl('/etat_create')
+    this.router.navigateByUrl('/etat_create_pharmacie')
   }
 
 }
