@@ -30,7 +30,7 @@ export class DemandeAjouterComponent {
 
   initForm() {
     this.consultationForm = this.formBuilder.group({
-      libelle            : [''],
+      commentaire        : [''],
       site_id            : [''],
       montant_demande    : ['', Validators.required],
     });
@@ -41,10 +41,6 @@ export class DemandeAjouterComponent {
       this.consultationService.Create_consultation(this.consultationForm.value).subscribe(response => {
         console.log(response); // Affiche les données reçues depuis l'API
         this.mess = response.message
-        setTimeout(() => {
-          this.mess = '';
-          this.consultationForm.reset();
-        },3000);
       },
       (error: HttpErrorResponse) => {
         console.error(error);

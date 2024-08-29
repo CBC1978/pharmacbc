@@ -4,6 +4,7 @@ import { CommonModule, NgFor, NgIf, UpperCasePipe } from '@angular/common';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { SidebarAdminComponent } from '../../../sidebar/sidebar-admin/sidebar-admin.component';
 import { Router } from '@angular/router';
+import { ExerciceServiceService } from '../../../../services/exerciceService/exercice-service.service';
 
 
 @Component({
@@ -17,7 +18,7 @@ export class RemboursementConsultationAfficherComponent implements OnInit {
 
   consultations: any[] = [];
   consultation!:any;
-  constructor(private router: Router,   private remboursement_consultationService: ConsultationServiceService) { }
+  constructor(private router: Router,   private remboursement_consultationService: ConsultationServiceService,private  etat_service: ExerciceServiceService) { }
   
   ngOnInit(): void {
     this.Afficher_remboursement();
@@ -53,7 +54,10 @@ export class RemboursementConsultationAfficherComponent implements OnInit {
   }
 
   etat() { 
-    this.router.navigateByUrl('/etat_create')
+    this.etat_service.Create_etat(null).subscribe(response => {
+      console.log('État créé avec succès:', response);
+      // Ajoutez ici une action à effectuer après le succès
+    });
   }
 
 }

@@ -11,10 +11,9 @@
                           <div class="card-body">
                             <h4 class="card-title">Ajoutez des fonctions </h4>
                             <br>
-                            
                             <form class="forms-sample"[formGroup]="fonctionForm">
                               <div class="form-group">
-                                <label for="exampleInputName1">Libellé</label>
+                                <label for="exampleInputName1">Libellé<span class="text-danger">*</span></label>
 
                                 <br>
                                 <small *ngIf="fonctionForm.controls['libelle'].touched && fonctionForm.controls['libelle'].hasError('required')" class="text-danger">* Le libelle est requis</small>

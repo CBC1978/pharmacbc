@@ -29,7 +29,7 @@ export class PharmacieAjouterComponent {
 
   initForm() {
     this.pharmacieForm = this.formBuilder.group({
-      libelle            : [''],
+      commentaire        : [''],
       site_id            : [''],
       montant_demande    : ['', Validators.required],
     });
@@ -40,10 +40,6 @@ export class PharmacieAjouterComponent {
       this.pharmacieService.Create_pharmacie(this.pharmacieForm.value).subscribe(response => {
         console.log(response); // Affiche les données reçues depuis l'API
         this.mess = response.message
-        setTimeout(() => {
-          this.mess = '';
-          this.pharmacieForm.reset();
-        },5000);
       },
       (error: HttpErrorResponse) => {
         console.error(error);

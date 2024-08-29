@@ -43,8 +43,8 @@ export class ExerciceServiceService {
 
 
   //Etat consultation
-  Create_etat(etat:any):Observable<any>{
-    return this.http.post<any[]>(`${environment.apiUrl}/etat/create`,etat);
+  Create_etat(body: any | null):Observable<any>{
+    return this.http.post<any[]>(`${environment.apiUrl}/etat/create`,body);
   }
 
   Read_etat_consultation(): Observable<any>
@@ -73,8 +73,8 @@ export class ExerciceServiceService {
 
 
   //Etat pharmacie
-  Create_etat_pharmacie(etat:any):Observable<any>{
-    return this.http.post<any[]>(`${environment.apiUrl}/etat/create/parmacie`,etat);
+  Create_etat_pharmacie(body: any | null):Observable<any>{
+    return this.http.post<any[]>(`${environment.apiUrl}/etat/create/parmacie`,body);
   }
 
   Read_etat_pharmacie(): Observable<any>

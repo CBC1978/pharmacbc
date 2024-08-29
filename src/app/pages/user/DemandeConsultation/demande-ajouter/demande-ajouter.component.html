@@ -14,12 +14,6 @@
                       <div *ngIf="mess" class="alert alert-success">
                         {{ mess }}
                       </div>
-                        <div class="form-group">
-                            <label for="inputNanme4" class="form-label">Libellé</label>
-                            <input type="text" class="form-control" id="exampleInputName1"  formControlName="libelle">
-                        </div>
-                        <br *ngIf="sites.length>1">
-                        
                         <div class="form-group" *ngIf="sites.length>1">
                           <label for="roleSelect" class="col-form-label">Sélectionner un site</label>
                           <select id="roleSelect" class="form-select" [(ngModel)]="selectedSite" formControlName="site_id">
@@ -32,7 +26,7 @@
                         </div>
                         <small *ngIf="consultationForm.controls['montant_demande'].touched && consultationForm.controls['montant_demande'].hasError('required')" class="text-danger">* Le montant est requis</small>
                         <div class="form-group">
-                            <label for="inputNanme4" class="form-label">Montant de la demande</label>
+                            <label for="inputNanme4" class="form-label">Montant de la demande  <span class="text-danger">*</span>  </label>
                             <input type="number" class="form-control" id="exampleInputName1"  formControlName="montant_demande">
                         </div>
                         <br>

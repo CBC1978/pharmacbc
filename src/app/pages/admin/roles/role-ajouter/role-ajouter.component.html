@@ -13,7 +13,7 @@
                         <br>
                         <form class="forms-sample"[formGroup]="roleForm">
                           <div class="form-group">
-                            <label for="exampleInputName1">Libellé</label>
+                            <label for="exampleInputName1">Libellé<span class="text-danger">*</span></label>
                             <br>
                             <small *ngIf="roleForm.controls['name'].touched && roleForm.controls['name'].hasError('required')" class="text-danger">* Le libelle est requis</small>
                             <br>

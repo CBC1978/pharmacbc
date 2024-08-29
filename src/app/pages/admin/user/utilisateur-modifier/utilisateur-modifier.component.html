@@ -11,7 +11,11 @@
                             <h4 class="card-title">Modifier un utilisateur</h4>
                             <br>
                             <form class="forms-sample" *ngIf="user">
-                
+                              <div class="form-group">
+                                <label for="inputNanme4" class="form-label">Matricule</label>
+                                <input type="text" class="form-control" id="exampleInputName1"  [(ngModel)]="user.matricule" name="matricule">
+                              </div>
+                              <br>
                                 <div class="form-group">
                                     <label for="inputNanme4" class="form-label">Nom</label>
                                     <input type="text" class="form-control" id="exampleInputName1"  [(ngModel)]="user.nom" name="nom">

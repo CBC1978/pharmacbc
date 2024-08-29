@@ -25,8 +25,12 @@ export class ConsultationServiceService {
     return this.http.get<any[]>(`${environment.apiUrl}/consultation/trier_liste/${parametre}?statut=${parametre}`); 
   }
 
-  Repay_consultation(id: number): Observable<any>{
-    return this.http.post(`${environment.apiUrl}/remboursement_consultation/create/${id}`, id);
+  Repay_consultation(id: number, libelle: string): Observable<any>{
+    const body = {
+      id: id,
+      libelle: libelle
+    };
+    return this.http.post(`${environment.apiUrl}/remboursement_consultation/create/${id}`, body);
   }
 
 

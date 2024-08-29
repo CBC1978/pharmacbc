@@ -12,34 +12,40 @@
                             <h4 class="card-title">Ajoutez des Utlisateurs </h4>
                             <br>
                             <form class="forms-sample" [formGroup]="userForm">
+                                <small *ngIf="userForm.controls['matricule'].touched && userForm.controls['matricule'].hasError('required')" class="text-danger">* Le matricule est requis</small>
+                                <div class="form-group">
+                                    <label for="inputNanme4" class="form-label">Matricule<span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" id="exampleInputName1"  formControlName="matricule">
+                                </div>
+                                <br>
                                 <small *ngIf="userForm.controls['nom'].touched && userForm.controls['nom'].hasError('required')" class="text-danger">* Le nom est requis</small>
                                 <div class="form-group">
-                                    <label for="inputNanme4" class="form-label">Nom</label>
+                                    <label for="inputNanme4" class="form-label">Nom<span class="text-danger">*</span></label>
                                     <input type="text" class="form-control" id="exampleInputName1"  formControlName="nom">
                                 </div>
                                 <br>
                                 <small *ngIf="userForm.controls['prenom'].touched && userForm.controls['prenom'].hasError('required')" class="text-danger">* Le prénom est requis</small>
                                 <div class="form-group">
-                                    <label for="inputNanme4" class="form-label">Prénom</label>
+                                    <label for="inputNanme4" class="form-label">Prénom<span class="text-danger">*</span></label>
                                     <input type="text" class="form-control" id="exampleInputName1" formControlName="prenom">
                                 </div>
                                 <br>
                                 <small *ngIf="userForm.controls['email'].touched && userForm.controls['email'].hasError('required')" class="text-danger">* L'email est requis</small>
                                 <div class="form-group">
-                                    <label for="inputNanme4" class="form-label">Email</label>
+                                    <label for="inputNanme4" class="form-label">Email<span class="text-danger">*</span></label>
                                     <input type="email" class="form-control" id="exampleInputName1"  formControlName="email">
                                 </div>
                                 <br>
                                 <small *ngIf="userForm.controls['role'].touched && userForm.controls['role'].hasError('required')" class="text-danger">* Le rôle est requis</small>
                                 <div class="form-group">
-                                    <label for="roleSelect" class="col-form-label">Sélectionner un rôle</label>
+                                    <label for="roleSelect" class="col-form-label">Sélectionner un rôle<span class="text-danger">*</span></label>
                                     <select id="roleSelect" class="form-select" formControlName="role">
                                         <option *ngFor="let role of roles;" [value]="role.name">{{ role.name }}</option>
                                     </select>
                                 </div>
                                 <small *ngIf="userForm.controls['fonction_id'].touched && userForm.controls['fonction_id'].hasError('required')" class="text-danger">* La fonction est requis</small>
                                 <div class="form-group">
-                                    <label for="roleSelect" class="col-form-label">Sélectionner une fonction</label>
+                                    <label for="roleSelect" class="col-form-label">Sélectionner une fonction<span class="text-danger">*</span></label>
                                     <select id="roleSelect" class="form-select" [(ngModel)]="selectedFonction" formControlName="fonction_id">
                                         <option *ngFor="let fonction of fonctions;" [value]="fonction.id">{{ fonction.libelle }}</option>
                                     </select>
@@ -47,7 +53,7 @@
                                 
                                 <div formArrayName="sites">
                                     <div *ngFor="let siteControl of sites.controls; let i = index">
-                                        <label for="siteSelect{{i}}" class="col-form-label">Sélectionner un site</label>
+                                        <label for="siteSelect{{i}}" class="col-form-label">Sélectionner un site<span class="text-danger">*</span></label>
                                         <div [formGroupName]="i" class="form-group d-flex align-items-center">
                                             
                                             <select id="siteSelect{{i}}" class="form-select me-2" formControlName="site_id">
