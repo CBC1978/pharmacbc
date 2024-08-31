@@ -15,6 +15,7 @@
                             <thead>
                                 <tr>
                                     <th scope="col">Matricule</th>
+                                    <th scope="col">Nom</th>
                                     <th scope="col">Prénom</th>
                                     <th scope="col">Montant</th>
                                     <th scope="col">Date</th>
@@ -24,12 +25,12 @@
                             </thead>
                             <tbody *ngFor="let etat of etats;">
                                 <tr>
-                                    <td>{{etat.id}}</td>
+                                    <td>{{etat.matricule}}</td>
                                     <td>{{etat.date_nom}}</td>
                                     <td>{{etat.data_prenom}}</td>
                                     <td>{{etat.montant_remboursement}}</td>
                                     <td>{{etat.created_at| date:'dd/MM/yyyy, HH:mm:ss'}}</td>
-                                    <td><span class="badge bg-danger"> Remboursée</span></td>
+                                    <td><span class="badge bg-success">Validée</span></td>
                                 </tr>
                             </tbody>
                         </table>

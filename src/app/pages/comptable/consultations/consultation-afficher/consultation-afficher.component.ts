@@ -18,7 +18,7 @@ export class ConsultationAfficherComponent implements OnInit {
   consul_rembForm!: FormGroup;
   consultations: any[] = [];
   consultation!:any;
-  libelle: string = '';
+  commentaire: string = '';
   selected_consultation_id: number | null = null;
   constructor(private consultationService: ConsultationServiceService, private route:ActivatedRoute) { }
   
@@ -50,7 +50,7 @@ export class ConsultationAfficherComponent implements OnInit {
 
 
   Open_modal(consultation: any) {
-    if (consultation.montant_demande > 1) {
+    if (consultation.montant_demande >= 100000) {
       this.consultation = consultation;
       const modalDiv = document.getElementById('commentModal');
       if(modalDiv!= null){
@@ -65,8 +65,8 @@ export class ConsultationAfficherComponent implements OnInit {
 
   validerConsultation() {
     const consultation_id = this.consultation.id
-    const libelle = this.libelle;
-    this.Remboursement_consultation(consultation_id, libelle);
+    const commentaire = this.commentaire;
+    this.Remboursement_consultation(consultation_id, commentaire);
     this.Close(); 
   }
 
@@ -78,9 +78,39 @@ export class ConsultationAfficherComponent implements OnInit {
     }
   }  
 
+  Close_rejet(){
+    const modalDiv = document.getElementById('refuserDemande');
+    if(modalDiv!= null){
+      modalDiv.style.display ='none';
+    }
+  }
 
-  Remboursement_consultation(id: number, libelle: string) {
-    this.consultationService.Repay_consultation(id,libelle).subscribe(() => {
+  Open_rejeter(consultation: any) {
+      this.consultation = consultation;
+      const modalDiv = document.getElementById('refuserDemande');
+      if(modalDiv!= null){
+        modalDiv.style.display ='Block';
+      }
+  }
+
+  Rejeter_demande() {
+    const consultation_id = this.consultation.id
+    const commentaire = this.commentaire;
+    this.Rejeter_remboursement_consultation(consultation_id, commentaire);
+    this.Close_rejet(); 
+  }
+
+
+  Remboursement_consultation(id: number, commentaire: string) {
+    this.consultationService.Repay_consultation(id,commentaire).subscribe(() => {
+      // Rafraîchir la liste des contacts après la suppression
+      this.Afficher_consultation();
+    });
+  }
+
+
+  Rejeter_remboursement_consultation(id: number, commentaire: string) {
+    this.consultationService.Reject_consultation(id,commentaire).subscribe(() => {
       // Rafraîchir la liste des contacts après la suppression
       this.Afficher_consultation();
     });

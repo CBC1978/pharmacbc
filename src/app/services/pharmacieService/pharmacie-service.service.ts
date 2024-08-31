@@ -25,8 +25,21 @@ export class PharmacieServiceService {
     return this.http.get<any[]>(`${environment.apiUrl}/pharmacie/trier_liste/${parametre}?statut=${parametre}`); 
   }
 
-  Repay_pharmacie(id: number): Observable<any>{
-    return this.http.post(`${environment.apiUrl}/remboursement_pharmacie/create/${id}`, id);
+  Repay_pharmacie(id: number, commentaire: string): Observable<any>{
+    const body = {
+      id: id,
+      commentaire: commentaire
+    };
+    return this.http.post(`${environment.apiUrl}/remboursement_pharmacie/create/${id}`, body);
+  }
+ 
+
+  Reject_pharmacie(id: number, commentaire: string): Observable<any>{
+    const body = {
+      id: id,
+      commentaire: commentaire
+    };
+    return this.http.post(`${environment.apiUrl}/remboursement_pharmacie/rejeter/${id}`, body);
   }
 
 
@@ -46,7 +59,6 @@ export class PharmacieServiceService {
 
 
   // Le service de pour les demandes de remboursement de pharmacie pour l'utilisateur 
-  
   Create_pharmacie(pharmacie:any):Observable<any>{
     return this.http.post<any[]>(`${environment.apiUrl}/pharmacie/create`,pharmacie);
   }

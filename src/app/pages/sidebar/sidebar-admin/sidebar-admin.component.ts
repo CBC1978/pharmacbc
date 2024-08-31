@@ -1,5 +1,5 @@
 import { CommonModule, DatePipe, NgFor, NgIf } from '@angular/common';
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ActivatedRoute, Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { GroupeServiceService } from '../../../services/groupeService/groupe-service.service';
 import { UserServiceService } from '../../../services/authService/user-service.service';

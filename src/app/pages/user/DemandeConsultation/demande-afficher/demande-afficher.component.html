@@ -31,7 +31,7 @@
                               <span *ngIf="consultation.statut_demande === 'validé'; else rejected"class="badge bg-success">Validée</span>
                             </ng-template>
                             <ng-template #rejected>
-                              <span *ngIf="consultation.statut_demande === 'rejeté'" class="badge bg-danger">Rejetée</span>
+                              <span *ngIf="consultation.statut_demande === 'Rejeté'" class="badge bg-danger">Rejetée</span>
                             </ng-template>
                           </td>
                           <td>{{consultation.commentaire}}</td>

@@ -1,0 +1,13 @@
+/* Styles pour le sidebar */
+.sidebar.collapsed {
+    width: 300px; /* Ajuste selon tes besoins */
+  }
+  
+  @media (min-width: 1200px) {
+    .sidebar.collapsed {
+      width: 0px; /* Ajuste selon tes besoins */
+      background-color: blue;
+    }
+}
+  
+  

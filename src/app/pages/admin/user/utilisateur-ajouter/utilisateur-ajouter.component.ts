@@ -33,6 +33,7 @@ export class UtilisateurAjouterComponent {
 
   initForm() {
     this.userForm = this.formBuilder.group({
+      matricule     : ['', Validators.required],
       nom           : ['', Validators.required],
       prenom        : ['', Validators.required],
       email         : ['', Validators.required],

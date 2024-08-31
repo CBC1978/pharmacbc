@@ -1,4 +1,4 @@
-import {  Component, OnInit,} from '@angular/core';
+import {  Component, EventEmitter, OnInit, Output,} from '@angular/core';
 import { SidebarAdminComponent } from '../sidebar-admin/sidebar-admin.component';
 import { NgIf } from '@angular/common';
 import { Chart, registerables, ChartOptions, ChartData, ChartType  } from 'chart.js';
@@ -47,6 +47,19 @@ export class DasboardComponent implements OnInit {
       this.permissions = this.permissionNames.map(p => p.name); 
       console.log('nom permissions',this.permissions)
     }); 
+  }
+  @Output() toggleSidebarEvent = new EventEmitter<void>();
+
+
+
+  toggleSidebar() {
+    this.toggleSidebarEvent.emit();
+  }
+
+  isSidebarCollapsed = false;
+
+  onToggleSidebar() {
+    this.isSidebarCollapsed = !this.isSidebarCollapsed;
   }
 
   Creer_chart() {

@@ -14,23 +14,22 @@
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
+                                    <th scope="col">Matricule</th>
                                     <th scope="col">Nom</th>
                                     <th scope="col">Prénom</th>
-                                    <th scope="col">Libellé</th>
                                     <th scope="col">Montant</th>
                                     <th scope="col">Date</th>
-                                    <th scope="col">Statut</th>
-                                    
+                                    <th scope="col">Statut</th>    
                                 </tr>
                             </thead>
                             <tbody *ngFor="let consultation of consultations;">
                                 <tr>
+                                    <td>{{consultation.matricule}}</td>
                                     <td>{{consultation.date_nom}}</td>
                                     <td>{{consultation.data_prenom}}</td>
-                                    <td>{{consultation.libelle}}</td>
                                     <td>{{consultation.montant_remboursement}}</td>
                                     <td>{{consultation.created_at| date:'dd/MM/yyyy, HH:mm:ss'}}</td>
-                                    <td><span class="badge bg-danger"> Remboursée</span></td>
+                                    <td><span class="badge bg-success"> Validée</span></td>
                                 </tr>
                             </tbody>
                         </table>

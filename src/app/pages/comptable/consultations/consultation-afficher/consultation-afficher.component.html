@@ -12,13 +12,14 @@
                                     <option selected>Afficher en fonction de </option>
                                     <option value="validé">Demande validée</option>
                                     <option value="non valide">Demande non validée</option>
-                                    <option value="rejeté">Demande rejetée</option>
+                                    <option value="Rejeté">Demande rejetée</option>
                                 </select>
                             </div>
                         </div>
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
+                                    <th scope="col">Matricule</th>
                                     <th scope="col">Nom</th>
                                     <th scope="col">Prénom</th>
                                     <th scope="col">Montant</th>
@@ -29,17 +30,21 @@
                             </thead>
                             <tbody *ngFor="let consultation of consultations;">
                                 <tr>
+                                    <td>{{consultation.matricule}}</td>
                                     <td>{{consultation.date_nom}}</td>
                                     <td>{{consultation.data_prenom}}</td>
                                     <td>{{consultation.montant_demande}}</td>
                                     <td>{{consultation.created_at| date:'dd/MM/yyyy, HH:mm:ss'}}</td>
                                     <td>
                                         <span *ngIf="consultation.statut_demande === 'non validé'; else valid"class="badge bg-warning">non validée</span>
-                                        <ng-template #valid><span class="badge bg-success"> Validé</span></ng-template>
+                                        <ng-template #valid><span *ngIf="consultation.statut_demande === 'validé'; else rejected" class="badge bg-success"> Validée</span></ng-template>
+                                        <ng-template #rejected>
+                                            <span *ngIf="consultation.statut_demande === 'Rejeté'" class="badge bg-danger">Rejetée</span>
+                                        </ng-template>
                                     </td>
-                                    <td *ngIf="consultation.statut_demande == 'non validé'" type="button"[formGroup]="consul_rembForm">
+                                    <td *ngIf="consultation.statut_demande === 'non validé'" type="button">
                                         <span class="badge bg-success me-5" type="button" (click)="Open_modal(consultation)">Valider</span>
-                                        <span class="badge bg-danger">Rejeter</span>
+                                        <span class="badge bg-danger" (click)="Open_rejeter(consultation)">Rejeter</span>
                                     </td>
                                 </tr>
                             </tbody>
@@ -52,7 +57,7 @@
                                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="Close()"></button>
                                     </div>
                                     <div class="modal-body">
-                                      <textarea [(ngModel)]="libelle" class="form-control" placeholder="Entrez votre commentaire ici..."></textarea>
+                                      <textarea [(ngModel)]="commentaire" class="form-control" placeholder="Entrez votre commentaire ici..."></textarea>
                                     </div>
                                     <div class="modal-footer">
                                       <span type="button" class="badge bg-success" (click)="validerConsultation()">Valider</span>
@@ -60,8 +65,24 @@
                                   </div>
                                 </div>
                             </div>
-                        </table>
-                        
+                            <!-- Modal -->
+                            <div class="modal" id="refuserDemande" tabindex="-1">
+                                <div class="modal-dialog">
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <h5 class="modal-title" id="exampleModalLabel">Ajouter un commentaire</h5>
+                                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="Close_rejet()"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                      <textarea [(ngModel)]="commentaire" class="form-control" placeholder="Entrez votre commentaire ici..."></textarea>
+                                    </div>
+                                    <div class="modal-footer">
+                                      <span type="button" class="badge bg-danger" (click)="Rejeter_demande()">Enregister</span>
+                                    </div>
+                                  </div>
+                                </div>
+                            </div>
+                        </table>   
                     </div>
                 </div>
             </div>

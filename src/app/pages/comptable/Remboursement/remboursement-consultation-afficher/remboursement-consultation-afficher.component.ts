@@ -57,7 +57,7 @@ export class RemboursementConsultationAfficherComponent implements OnInit {
     this.etat_service.Create_etat(null).subscribe(response => {
       console.log('État créé avec succès:', response);
       // Ajoutez ici une action à effectuer après le succès
+      this.router.navigateByUrl('/etat_afficher')
     });
   }
-
 }
