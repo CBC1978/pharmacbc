@@ -21,6 +21,7 @@ export class UtilisateurAjouterComponent {
   selectedRole!: string;
   selectedFonction!: number;
   selectedSite!: number;
+  message: string = '';
   
   constructor(private router: Router, private formBuilder: FormBuilder, private userService: UserServiceService, private groupeService : GroupeServiceService ) { }
 
@@ -65,8 +66,10 @@ export class UtilisateurAjouterComponent {
       this.userService.register(this.userForm.value).subscribe(response => {
          // Affiche les données reçues depuis l'API
         console.log(response);  
+        this.message = response.message;
         setTimeout(() => {
           this.userForm.reset();
+          this.message = '';
         },2000);
       }); 
 

@@ -11,6 +11,9 @@
                             <h4 class="card-title">Ajoutez des Utlisateurs </h4>
                             <br>
                             <form class="forms-sample" [formGroup]="userForm">
+                                <div *ngIf="message" class="alert alert-success">
+                                    {{ message }}
+                                  </div>
                                 <small *ngIf="userForm.controls['matricule'].touched && userForm.controls['matricule'].hasError('required')" class="text-danger">* Le matricule est requis</small>
                                 <div class="form-group">
                                     <label for="inputNanme4" class="form-label">Matricule<span class="text-danger">*</span></label>

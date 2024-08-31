@@ -33,6 +33,7 @@ export class FonctionAjouterComponent {
    if (this.fonctionForm.valid) {
     this.groupeService.Create_fonction(this.fonctionForm.value).subscribe(
       async(res) =>{
+        this.message = res.message
         this.initForm();
         setTimeout(() => {
           this.fonctionForm.reset();

@@ -11,34 +11,40 @@
                           <div class="card-body">
                             <h4 class="card-title">Ajoutez des exercices </h4>
                             <br>
+                            <div *ngIf="mess" class="text-danger">
+                                {{ mess }}
+                              </div>
+                              <div *ngIf="message" class="alert alert-success">
+                                {{ message }}
+                              </div>
                             <form class="forms-sample" [formGroup]="exerciceForm">
                                 <small *ngIf="exerciceForm.controls['libelle'].touched && exerciceForm.controls['libelle'].hasError('required')" class="text-danger">* Le libelle est requis</small>
                                 <div class="form-group">
-                                    <label for="inputNanme4" class="form-label">Libellé</label>
+                                    <label for="inputNanme4" class="form-label">Libellé <span class="text-danger">*</span>   </label>
                                     <input type="text" class="form-control" id="exampleInputName1"  formControlName="libelle">
                                 </div>
                                 <br>
                                 <small *ngIf="exerciceForm.controls['solde_pharmacie'].touched && exerciceForm.controls['solde_pharmacie'].hasError('required')" class="text-danger">* Le solde pharmacie est requis</small>
                                 <div class="form-group">
-                                    <label for="inputNanme4" class="form-label">Le solde pharmacie</label>
+                                    <label for="inputNanme4" class="form-label">Le solde pharmacie<span class="text-danger">*</span></label>
                                     <input type="number" class="form-control" id="exampleInputName1"  formControlName="solde_pharmacie">
                                 </div>
                                 <br>
                                 <small *ngIf="exerciceForm.controls['solde_consultation'].touched && exerciceForm.controls['solde_consultation'].hasError('required')" class="text-danger">* Le solde pour les frais médicaux est requis</small>
                                 <div class="form-group">
-                                    <label for="inputNanme4" class="form-label">Le solde pour les frais médicaux</label>
+                                    <label for="inputNanme4" class="form-label">Le solde pour la consultation<span class="text-danger">*</span></label>
                                     <input type="number" class="form-control" id="exampleInputName1"  formControlName="solde_consultation">
                                 </div>
                                 <br>
                                 <small *ngIf="exerciceForm.controls['date_debut'].touched && exerciceForm.controls['date_debut'].hasError('required')" class="text-danger">* La date de début est requise</small>
                                 <div class="form-group">
-                                    <label for="inputNanme4" class="form-label">Date de début de l'exercice</label>
+                                    <label for="inputNanme4" class="form-label">Date de début de l'exercice<span class="text-danger">*</span></label>
                                     <input type="date" id="exampleInputName1" class="form-control"  formControlName="date_debut">
                                 </div>
                                 <br>
                                 <small *ngIf="exerciceForm.controls['date_fin'].touched && exerciceForm.controls['date_fin'].hasError('required')" class="text-danger">* La date de fin est requise</small>
                                 <div class="form-group">
-                                    <label for="inputNanme4" class="form-label">Date de fin de l'exercice</label>
+                                    <label for="inputNanme4" class="form-label">Date de fin de l'exercice<span class="text-danger">*</span></label>
                                     <input type="date" id="exampleInputName1"  class="form-control"   formControlName="date_fin">
                                 </div>
                                 <br>
