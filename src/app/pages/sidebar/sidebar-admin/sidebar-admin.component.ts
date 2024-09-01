@@ -14,6 +14,7 @@ import { FormsModule } from '@angular/forms';
 })
 export class SidebarAdminComponent implements OnInit {
 
+  searchBarVisible: boolean = false;
   permission_names: any[] = [];
   permissions: string[] = [];
   user!: any;
@@ -26,7 +27,7 @@ export class SidebarAdminComponent implements OnInit {
     unread_count: number;
     unread_notifications: any[];
   };
-
+  isSidebarOpen = false;
   @Output() searchPerformed: EventEmitter<any[]> = new EventEmitter();
 
   constructor(private router: Router,  private groupeService: GroupeServiceService, private userService: UserServiceService, private route: ActivatedRoute) { }
@@ -34,6 +35,7 @@ export class SidebarAdminComponent implements OnInit {
     this.Afficher_permission();
     this.Afficher_notications()
     this.current_page = this.route.snapshot.url[0].path;
+    this.initSidebarToggle();
   }
 
   Afficher_permission() {
@@ -76,4 +78,22 @@ export class SidebarAdminComponent implements OnInit {
     });
   }
 
+
+  // Pour le sidebar
+  initSidebarToggle() {
+    const toggleBtn = document.querySelector('.toggle-sidebar-btn');
+    const sidebar = document.querySelector('.sidebar'); // Assure-toi que la classe du sidebar est correcte
+
+    if (toggleBtn && sidebar) {
+      toggleBtn.addEventListener('click', () => {
+        sidebar.classList.toggle('open');
+      });
+    }
+  }
+
+
+  // Pour la barre de recherche
+  toggleSearchBar() {
+    this.searchBarVisible = !this.searchBarVisible;
+  }
 }

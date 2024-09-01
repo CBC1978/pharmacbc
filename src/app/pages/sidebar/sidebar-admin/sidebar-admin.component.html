@@ -10,7 +10,7 @@
       <i class="bi bi-list toggle-sidebar-btn"></i>
     </div><!-- End Logo -->
   
-    <div class="search-bar">
+    <div class="search-bar" [ngClass]="{'show-search-bar': searchBarVisible}">
       <form class="search-form d-flex align-items-center">
         <input type="text" [(ngModel)]="search_query" name="search_query" placeholder="Rechercher..." title="Enter search keyword">
         <button type="submit" (click)="Rechercher()"><i class="bi bi-search"></i></button>
@@ -21,7 +21,7 @@
       <ul class="d-flex align-items-center">
   
         <li class="nav-item d-block d-lg-none">
-          <a class="nav-link nav-icon search-bar-toggle" >
+          <a class="nav-link nav-icon search-bar-toggle" type="button" (click)="toggleSearchBar()">
             <i class="bi bi-search"></i>
           </a>
         </li><!-- End Search Icon-->
