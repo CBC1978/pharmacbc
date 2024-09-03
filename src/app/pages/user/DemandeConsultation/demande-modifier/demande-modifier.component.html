@@ -11,12 +11,6 @@
                             <h4 class="card-title">Modifier la demande de remboursement</h4>
                             <br>
                             <form class="forms-sample" *ngIf="consultation">
-                
-                                <div class="form-group">
-                                    <label for="inputNanme4" class="form-label">Libellé</label>
-                                    <input type="text" class="form-control" id="exampleInputName1"  [(ngModel)]="consultation.libelle" name="libelle">
-                                </div>
-                                <br *ngIf="sites.length>1">
                                 <div class="form-group" *ngIf="sites.length>1">
                                   <label for="siteSelect" class="col-form-label">Sélectionner un site</label>
                                   <select id="siteSelect" class="form-select" [(ngModel)]="consultation.site_id" name="site_id">

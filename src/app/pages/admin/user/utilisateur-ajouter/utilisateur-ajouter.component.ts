@@ -106,6 +106,4 @@ export class UtilisateurAjouterComponent {
       this.fonctions = response.data;
     }); 
   }
-
-
 }

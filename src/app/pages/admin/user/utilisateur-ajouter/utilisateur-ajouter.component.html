@@ -57,17 +57,14 @@
                                     <div *ngFor="let siteControl of sites.controls; let i = index">
                                         <label for="siteSelect{{i}}" class="col-form-label">Sélectionner un site<span class="text-danger">*</span></label>
                                         <div [formGroupName]="i" class="form-group d-flex align-items-center">
-                                            
                                             <select id="siteSelect{{i}}" class="form-select me-2" formControlName="site_id">
                                                 <option *ngFor="let site of sitess" [value]="site.id">{{ site.libelle }}</option>
                                             </select>
-                                            <button type="button" (click)="removeSiteSelection(i)" class="btn btn-danger btn-sm me-2"><i class="fas fa-trash-alt"></i></button>
+                                            <button  *ngIf="i>=1"  type="button" (click)="removeSiteSelection(i)" class="btn btn-danger btn-sm me-2"><i class="fas fa-trash-alt"></i></button>
                                             <button type="button" (click)="addSiteSelection()" class="btn btn-primary btn-sm"><i class="fas fa-plus"></i></button>
                                         </div>
-                                    </div>
-                                    
+                                    </div>  
                                 </div>
-                                
                                 <br>
                               <button type="submit" class="btn btn-primary me-2" (click)="Ajouter_user()" >Soumettre</button>
                             </form>
@@ -78,6 +75,5 @@
                 </div>  
             </div>
         </section>
-
     </main><!-- End #main --> 
 </app-sidebar-admin>

@@ -103,7 +103,7 @@ export const routes: Routes = [
     // Les routes pour le sidebar utilisateurs
     {path:'siderbar_demande_consultation', component:SidebarUserComponent},
 
-    // Les routes pour les utilisateurs, demande de remboursement pour les frais médicaux
+    // Les routes pour les utilisateurs, demande de remboursement pour la consultation
     {path:'afficher_demande_consultation', component:DemandeAfficherComponent},
     {path:'ajouter_demande_consultation', component:DemandeAjouterComponent},
     {path:'consultation_modifier/:id', component:DemandeModifierComponent},
@@ -115,14 +115,16 @@ export const routes: Routes = [
     {path:'pharmacie_modifier/:id', component:PharmacieModifierComponent},
 
 
+    // Routes pour affcher les historiques
     {path:'historique_afficher', component:HistoriqueAfficherComponent},
 
+    // Les routes pour les états de la consultation
     {path:'etat_create', component:EtatAjouterComponent},
     {path:'etat_afficher', component:EtatAfficherComponent},
     { path:'etat_id/:id', component:EtatRemboursementComponent}, 
 
 
-
+    // Les routes pour les états de la pharmacie
     {path:'etat_create_pharmacie', component:EtatPharmacieAjouterComponent},
     {path:'etat_afficher_pharmacie', component:EtatPharmacieAfficherComponent},
     { path:'etat_id_pharmacie/:id', component:EtatPharmacieRembComponent}

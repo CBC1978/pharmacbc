@@ -350,11 +350,6 @@
           <i class="fas fa-prescription-bottle fa-2x"></i><span>Pharmacie</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="etats-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-          <li *ngIf="permissions.includes('Créer un etat pharmacie')">
-            <a routerLink="/etat_create_pharmacie" routerLinkActive="active" type="button">
-              <i class="fa fa-paper-plane"></i><span>Ajouter un état </span>
-            </a>
-          </li>
           <li *ngIf="permissions.includes('Afficher les etats pharmacie')">
             <a routerLink="/etat_afficher_pharmacie" routerLinkActive="active" type="button">
               <i class="fa fa-eye"></i><span>Afficher les etats</span>
@@ -367,11 +362,6 @@
           <i class="fas fa-file-medical fa-2x"></i><span>Consultation </span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="etatspharma-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-          <li *ngIf="permissions.includes('Créer un etat frais médicaux')">
-            <a routerLink="/etat_create" routerLinkActive="active" type="button">
-              <i class="fa fa-paper-plane"></i><span>Ajouter un état </span>
-            </a>
-          </li>
           <li *ngIf="permissions.includes('Afficher les etats frais médicaux')">
             <a routerLink="/etat_afficher" routerLinkActive="active" type="button">
               <i class="fa fa-eye"></i><span>Afficher les etats</span>
