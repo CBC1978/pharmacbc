@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { SidebarAdminComponent } from '../../../sidebar/sidebar-admin/sidebar-admin.component';
 import { HttpErrorResponse } from '@angular/common/http';
+import { GroupeServiceService } from '../../../../services/groupeService/groupe-service.service';
 
 @Component({
   selector: 'app-pharmacie-modifier',
@@ -17,14 +18,17 @@ export class PharmacieModifierComponent {
   pharmacie_id!:any;
   pharmacie!:any;
   message: string = '';
-  constructor(private router: Router,  private pharmacieService: PharmacieServiceService, private route:ActivatedRoute,) { }
+  sites: any[] = [];
+  constructor(private router: Router,  private pharmacieService: PharmacieServiceService, private route:ActivatedRoute,private groupeService : GroupeServiceService) { }
 
   ngOnInit(){
     this.pharmacie_id=this.route.snapshot.paramMap.get('id');
     this.pharmacieService.Get_pharmacie_id(this.pharmacie_id).subscribe(res=>{
         this.pharmacie = res.data;
         console.log('pharmacie :', this.pharmacie)
-   });
+   }
+  );
+  this.Afficher_site();
   }
 
   
@@ -49,6 +53,13 @@ export class PharmacieModifierComponent {
       setTimeout(() => {
         this.message = '';
       }, 3000);
+    }); 
+  }
+
+  Afficher_site() {
+    this.groupeService.Read_user_site().subscribe(response => {
+      console.log(response); // Affiche les données reçues depuis l'API
+      this.sites = response.sites_user;
     }); 
   }
 

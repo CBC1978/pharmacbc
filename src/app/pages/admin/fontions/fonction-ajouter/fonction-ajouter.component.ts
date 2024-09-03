@@ -5,6 +5,7 @@ import { GroupeServiceService } from '../../../../services/groupeService/groupe-
 import { CommonModule } from '@angular/common';
 import { SidebarAdminComponent } from '../../../sidebar/sidebar-admin/sidebar-admin.component';
 
+
 @Component({
   selector: 'app-fonction-ajouter',
   standalone: true,
@@ -32,6 +33,7 @@ export class FonctionAjouterComponent {
    if (this.fonctionForm.valid) {
     this.groupeService.Create_fonction(this.fonctionForm.value).subscribe(
       async(res) =>{
+        this.message = res.message
         this.initForm();
         setTimeout(() => {
           this.fonctionForm.reset();

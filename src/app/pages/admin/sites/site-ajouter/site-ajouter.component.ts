@@ -14,6 +14,7 @@ import { SidebarAdminComponent } from '../../../sidebar/sidebar-admin/sidebar-ad
 })
 export class SiteAjouterComponent {
   siteForm!: FormGroup;
+  message: string = '';
 
   constructor(private router: Router, private formBuilder: FormBuilder, private groupeService: GroupeServiceService) { }
 
@@ -32,8 +33,10 @@ export class SiteAjouterComponent {
       this.groupeService.Create_site(this.siteForm.value).subscribe(
         async(res) =>{
           this.initForm();
+          this.message = res.message;
           setTimeout(() => {
             this.siteForm.reset();
+            this.message = '';
           },2000);
         },
         async (err: any)=>{

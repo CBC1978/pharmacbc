@@ -12,8 +12,11 @@
                             <h4 class="card-title">Ajoutez des sites </h4>
                             <br>
                             <form class="forms-sample"[formGroup]="siteForm">
+                              <div *ngIf="message" class="alert alert-success">
+                                {{ message }}
+                              </div>
                               <div class="form-group">
-                                <label for="exampleInputName1">Libellé</label>
+                                <label for="exampleInputName1">Libellé<span class="text-danger">*</span></label>
                                 <br>
                                 <small *ngIf="siteForm.controls['libelle'].touched && siteForm.controls['libelle'].hasError('required')" class="text-danger">* Le libelle est requis</small>
                                 <br>

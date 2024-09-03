@@ -35,6 +35,12 @@ import { ModifierPasswordComponent } from './pages/user/profil/modifier-password
 import { DasboardComponent } from './pages/sidebar/dasboard/dasboard.component';
 import { PharmacieAfficherUserComponent } from './pages/user/DemandePharmacie/pharmacie-afficher-user/pharmacie-afficher-user.component';
 import { HistoriqueAfficherComponent } from './pages/admin/historique/historique-afficher/historique-afficher.component';
+import { EtatAjouterComponent } from './pages/comptable/Etat/Consultation/etat-ajouter/etat-ajouter.component';
+import { EtatAfficherComponent } from './pages/comptable/Etat/Consultation/etat-afficher/etat-afficher.component';
+import { EtatRemboursementComponent } from './pages/comptable/Etat/Consultation/etat-remboursement/etat-remboursement.component';
+import { EtatPharmacieAjouterComponent } from './pages/comptable/Etat/Pharmacie/etat-pharmacie-ajouter/etat-pharmacie-ajouter.component';
+import { EtatPharmacieAfficherComponent } from './pages/comptable/Etat/Pharmacie/etat-pharmacie-afficher/etat-pharmacie-afficher.component';
+import { EtatPharmacieRembComponent } from './pages/comptable/Etat/Pharmacie/etat-pharmacie-remb/etat-pharmacie-remb.component';
 
 
 export const routes: Routes = [
@@ -97,7 +103,7 @@ export const routes: Routes = [
     // Les routes pour le sidebar utilisateurs
     {path:'siderbar_demande_consultation', component:SidebarUserComponent},
 
-    // Les routes pour les utilisateurs, demande de remboursement pour les frais médicaux
+    // Les routes pour les utilisateurs, demande de remboursement pour la consultation
     {path:'afficher_demande_consultation', component:DemandeAfficherComponent},
     {path:'ajouter_demande_consultation', component:DemandeAjouterComponent},
     {path:'consultation_modifier/:id', component:DemandeModifierComponent},
@@ -109,7 +115,19 @@ export const routes: Routes = [
     {path:'pharmacie_modifier/:id', component:PharmacieModifierComponent},
 
 
+    // Routes pour affcher les historiques
     {path:'historique_afficher', component:HistoriqueAfficherComponent},
+
+    // Les routes pour les états de la consultation
+    {path:'etat_create', component:EtatAjouterComponent},
+    {path:'etat_afficher', component:EtatAfficherComponent},
+    { path:'etat_id/:id', component:EtatRemboursementComponent}, 
+
+
+    // Les routes pour les états de la pharmacie
+    {path:'etat_create_pharmacie', component:EtatPharmacieAjouterComponent},
+    {path:'etat_afficher_pharmacie', component:EtatPharmacieAfficherComponent},
+    { path:'etat_id_pharmacie/:id', component:EtatPharmacieRembComponent}
 
 
 

@@ -14,6 +14,7 @@ import { SidebarAdminComponent } from '../../../sidebar/sidebar-admin/sidebar-ad
 })
 export class RoleAjouterComponent {
   roleForm!: FormGroup;
+  message :string = '';
 
   constructor(private router: Router, private formBuilder: FormBuilder, private groupeService: GroupeServiceService) { }
 
@@ -31,9 +32,11 @@ export class RoleAjouterComponent {
     if (this.roleForm.valid) {
       this.groupeService.Create_role(this.roleForm.value).subscribe(
         async(res) =>{
+          this.message = res.message
           this.initForm();
           setTimeout(() => {
             this.roleForm.reset();
+            this.message = '';
           },2000);
         },
         async (err: any)=>{

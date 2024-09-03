@@ -18,6 +18,7 @@ export class UtilisateurModifierComponent {
   user_id!:any;
   user!:any;
   sites: any[] = [];
+  roles: any[] = [];
   fonctions: any[] = [];
   selectedRole!: string;
   selectedFonction!: number;
@@ -33,6 +34,7 @@ export class UtilisateurModifierComponent {
    });
    this.Afficher_fonction();
    this.Afficher_site();
+   this.Afficher_role();
   }
 
   
@@ -59,4 +61,15 @@ export class UtilisateurModifierComponent {
     }); 
   }
 
+
+    Afficher_role(){
+      this.groupeService.Read_role().subscribe(response => {
+        console.log(response); // Affiche les données reçues depuis l'API
+        this.roles = response.data;
+      }); 
+
+    }
+
+
+    
 }

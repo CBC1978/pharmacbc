@@ -50,8 +50,8 @@ export class UserServiceService {
     return this.http.put(`${environment.apiUrl}/users/modifier_utilisateur`, body);
   }
 
-  Updated_password(old_password: string, ng_password: string, body: any | null ): Observable<any> {    
-    return this.http.put(`${environment.apiUrl}/users/update_password?ng_password=${ng_password}&old_password=${old_password}`,body);
+  Updated_password(old_password: string, ng_password: string,ng_password_confirmation: string, body: any | null ): Observable<any> {    
+    return this.http.put(`${environment.apiUrl}/users/update_password?ng_password=${ng_password}&old_password=${old_password}&ng_password_confirmation=${ng_password_confirmation}`,body);
   }
 
   logout(): Observable<any>{

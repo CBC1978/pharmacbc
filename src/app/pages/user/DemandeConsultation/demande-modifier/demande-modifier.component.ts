@@ -5,6 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ConsultationServiceService } from '../../../../services/consultatonService/consultation-service.service';
 import { SidebarAdminComponent } from '../../../sidebar/sidebar-admin/sidebar-admin.component';
 import { HttpErrorResponse } from '@angular/common/http';
+import { GroupeServiceService } from '../../../../services/groupeService/groupe-service.service';
 
 @Component({
   selector: 'app-demande-modifier',
@@ -17,8 +18,9 @@ export class DemandeModifierComponent {
   consultation_id!:any;
   consultation!:any;
   message: string = '';
+  sites: any[] = [];
 
-  constructor(private router: Router,  private consultationService: ConsultationServiceService, private route:ActivatedRoute,) { }
+  constructor(private router: Router,  private consultationService: ConsultationServiceService, private route:ActivatedRoute,private groupeService : GroupeServiceService) { }
 
   ngOnInit(){
     this.consultation_id=this.route.snapshot.paramMap.get('id');
@@ -27,6 +29,7 @@ export class DemandeModifierComponent {
         console.log('consultation :', this.consultation)
    }
   );
+  this.Afficher_site();
   }
 
   
@@ -51,6 +54,13 @@ export class DemandeModifierComponent {
       setTimeout(() => {
         this.message = '';
       }, 3000);
+    }); 
+  }
+
+  Afficher_site() {
+    this.groupeService.Read_user_site().subscribe(response => {
+      console.log(response); // Affiche les données reçues depuis l'API
+      this.sites = response.sites_user;
     }); 
   }
 

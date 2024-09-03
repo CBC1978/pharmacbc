@@ -4,7 +4,7 @@
             <div class="col-12">
                 <div class="card recent-sales overflow-auto">
                     <div class="card-body">
-                        <h5 class="card-title">La liste des demandes de remboursement pour les frais médicaux</h5>
+                        <h5 class="card-title">La liste des demandes de remboursement pour la pharmacie</h5>
                         <div class="row mb-4">
                             
                             <div class="col-sm-10">
@@ -12,6 +12,7 @@
                                     <option selected>Afficher en fonction de </option>
                                     <option value="validé">Demande validée</option>
                                     <option value="non valide">Demande non validée</option>
+                                    <option value="Rejeté">Demande rejetée</option>
                                     
                                 </select>
                             </div>
@@ -19,35 +20,73 @@
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
+                                    <th scope="col">Matricule</th>
                                     <th scope="col">Nom</th>
                                     <th scope="col">Prénom</th>
-                                    <th scope="col">Libellé</th>
-                                    <th scope="col">Description</th>
                                     <th scope="col">Montant</th>
-                                    <th scope="col">Date de la demande</th>
-                                    <th scope="col">Statut de la demande</th>
+                                    <th scope="col">Date</th>
+                                    <th scope="col">Statut</th>
                                     <th scope="col">Action</th>
                                 </tr>
                             </thead>
                             <tbody *ngFor="let pharmacie of pharmacies;">
                                 <tr>
+                                    <td>{{pharmacie.matricule}}</td>
                                     <td>{{pharmacie.date_nom}}</td>
                                     <td>{{pharmacie.data_prenom}}</td>
-                                    <td>{{pharmacie.libelle}}</td>
-                                    <td>{{pharmacie.description}}</td>
                                     <td>{{pharmacie.montant_demande}}</td>
-                                    <td>{{pharmacie.created_at}}</td>
-                                    <td><span class="badge bg-success"> {{pharmacie.statut_demande}}e</span></td>
-                                    <td *ngIf="pharmacie.statut_demande == 'non validé'" type="button">
-                                        <span class="badge bg-danger"  (click)="Remboursement_pharmacie(pharmacie.id)">Rembourser</span>
+                                    <td>{{pharmacie.created_at| date:'dd/MM/yyyy, HH:mm:ss'}}</td>
+                                    <td>
+                                        <span *ngIf="pharmacie.statut_demande === 'non validé'; else valid"class="badge bg-warning">non validée</span>
+                                        <ng-template #valid><span *ngIf="pharmacie.statut_demande === 'validé'; else rejected" class="badge bg-success"> Validée</span></ng-template>
+                                        <ng-template #rejected>
+                                            <span *ngIf="pharmacie.statut_demande === 'Rejeté'" class="badge bg-danger">Rejetée</span>
+                                        </ng-template>
+                                    </td>
+                                    <td *ngIf="pharmacie.statut_demande === 'non validé'" type="button">
+                                        <span class="badge bg-success me-5" type="button" (click)="Open_modal(pharmacie)">Valider</span>
+                                        <span class="badge bg-danger" (click)="Open_rejeter(pharmacie)">Rejeter</span>
                                     </td>
                                 </tr>
                             </tbody>
-                        </table>
+                             <!-- Modal -->
+                             <div class="modal" id="commentModal" tabindex="-1">
+                                <div class="modal-dialog">
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <h5 class="modal-title" id="exampleModalLabel">Ajouter un commentaire</h5>
+                                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="Close()"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                      <textarea [(ngModel)]="commentaire" class="form-control" placeholder="Entrez votre commentaire ici..."></textarea>
+                                    </div>
+                                    <div class="modal-footer">
+                                      <span type="button" class="badge bg-success" (click)="validerConsultation()">Valider</span>
+                                    </div>
+                                  </div>
+                                </div>
+                            </div>
+                            <!-- Modal -->
+                            <div class="modal" id="refuserDemande" tabindex="-1">
+                                <div class="modal-dialog">
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <h5 class="modal-title" id="exampleModalLabel">Ajouter un commentaire</h5>
+                                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="Close_rejet()"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                      <textarea [(ngModel)]="commentaire" class="form-control" placeholder="Entrez votre commentaire ici..."></textarea>
+                                    </div>
+                                    <div class="modal-footer">
+                                      <span type="button" class="badge bg-danger" (click)="Rejeter_demande()">Enregister</span>
+                                    </div>
+                                  </div>
+                                </div>
+                            </div>
+                        </table>  
                     </div>
                 </div>
             </div>
         </section>
     </main><!-- End #main --> 
 </app-sidebar-admin>
-
