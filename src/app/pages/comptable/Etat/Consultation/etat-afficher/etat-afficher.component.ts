@@ -1,9 +1,10 @@
 import { NgFor, NgIf, UpperCasePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { ExerciceServiceService } from '../../../../../services/exerciceService/exercice-service.service';
 import { SidebarAdminComponent } from '../../../../sidebar/sidebar-admin/sidebar-admin.component';
+
 
 @Component({
   selector: 'app-etat-afficher',
@@ -15,11 +16,15 @@ import { SidebarAdminComponent } from '../../../../sidebar/sidebar-admin/sidebar
 export class EtatAfficherComponent implements OnInit {
 
   etats: any[] = [];
-
+  exercices: any[] = [];
+  values: any[] = [];
   etat!:any;
+  selected_exercice_id!: number;
+
   constructor(private router: Router,private etatService: ExerciceServiceService) { }
   ngOnInit(): void {
     this.Afficher_etat();
+    this.Afficher_exercice();
   }
 
   Afficher_etat() {
@@ -54,5 +59,21 @@ export class EtatAfficherComponent implements OnInit {
     this.router.navigate(['/etat_id', id]);
   }
 
-}
+  Afficher_exercice() {
+    this.etatService.Read_exercice_consultation().subscribe(response => {
+      console.log(response); // Affiche les données reçues depuis l'API
+      this.exercices = response.data;
+    }); 
+  }
 
+  Choose_exercice(): void {
+    this.Trier_liste_exercice(this.selected_exercice_id);
+  }
+
+
+  Trier_liste_exercice(parametre: number) {
+    this.etatService.Sort_list_exercice(parametre).subscribe(response => {
+      this.values = response.data;
+    });
+  }
+}

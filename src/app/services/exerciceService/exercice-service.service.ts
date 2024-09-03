@@ -70,6 +70,15 @@ export class ExerciceServiceService {
     return this.http.get<Blob>(`${environment.apiUrl}/etat/pdf/${id}`, httpOptions);
   }
 
+  Sort_list_exercice(parametre: number): Observable<any> {
+    return this.http.get<any[]>(`${environment.apiUrl}/etat/trier/${parametre}?exercice_id=${parametre}`); 
+  }
+
+
+  Read_exercice_consultation(): Observable<any>
+  {
+    return this.http.get<any[]>(`${environment.apiUrl}/etat/exercice`);
+  }
 
 
   //Etat pharmacie
