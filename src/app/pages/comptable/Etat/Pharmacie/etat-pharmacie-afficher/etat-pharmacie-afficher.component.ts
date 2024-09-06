@@ -15,11 +15,13 @@ import { SidebarAdminComponent } from '../../../../sidebar/sidebar-admin/sidebar
 export class EtatPharmacieAfficherComponent implements OnInit {
 
   etats: any[] = [];
-
+  exercices: any[] = [];
+  selected_exercice_id!: number;
   etat!:any;
   constructor(private router: Router,private etatService: ExerciceServiceService) { }
   ngOnInit(): void {
     this.Afficher_etat();
+    this.Afficher_exercice();
   }
 
   Afficher_etat() {
@@ -54,4 +56,22 @@ export class EtatPharmacieAfficherComponent implements OnInit {
     this.router.navigate(['/etat_id_pharmacie', id]);
   }
 
+
+  Afficher_exercice() {
+    this.etatService.Read_exercice_pharmacie().subscribe(response => {
+      console.log(response); // Affiche les données reçues depuis l'API
+      this.exercices = response.data;
+    }); 
+  }
+
+  Choose_exercice(): void {
+    this.Trier_liste_exercice(this.selected_exercice_id);
+  }
+
+
+  Trier_liste_exercice(parametre: number) {
+    this.etatService.Sort_list_exercice_pharmacie(parametre).subscribe(response => {
+      this.etats = response.data;
+    });
+  }
 }

@@ -16,17 +16,17 @@
                     <table class="table table-bordered">
                       <thead>
                         <tr>
+                          <th scope="col">Le numéro de l'état</th>
                           <th scope="col">La date de début</th>
                           <th scope="col">La date de fin</th>
-                          <th scope="col">La date de création</th>
                           <th scope="col">Action</th>
                         </tr>
                       </thead>
                       <tbody *ngFor="let etat of etats;">
                         <tr>
+                          <td>Etat n°{{etat.libelle}}</td>
                           <td>{{etat.date_debut}}</td>
                           <td>{{etat.date_fin}}</td>
-                          <td>{{etat.date_generation}}</td>
                           <td>
                             <div class="form-button-action">
                                 <button type="button" data-bs-toggle="tooltip" title="Afficher les remboursements de l'état" class="btn btn-link btn-primary btn-lg"  (click)="etat_ids(etat.id)" >

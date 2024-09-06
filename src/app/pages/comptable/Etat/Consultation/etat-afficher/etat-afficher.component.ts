@@ -16,9 +16,8 @@ import { SidebarAdminComponent } from '../../../../sidebar/sidebar-admin/sidebar
 export class EtatAfficherComponent implements OnInit {
 
   etats: any[] = [];
-  exercices: any[] = [];
-  values: any[] = [];
   etat!:any;
+  exercices: any[] = [];
   selected_exercice_id!: number;
 
   constructor(private router: Router,private etatService: ExerciceServiceService) { }
@@ -73,7 +72,7 @@ export class EtatAfficherComponent implements OnInit {
 
   Trier_liste_exercice(parametre: number) {
     this.etatService.Sort_list_exercice(parametre).subscribe(response => {
-      this.values = response.data;
+      this.etats = response.data;
     });
   }
 }

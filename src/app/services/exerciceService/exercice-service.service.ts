@@ -108,4 +108,14 @@ export class ExerciceServiceService {
     };
     return this.http.get<Blob>(`${environment.apiUrl}/etat/pdf/parmacie/${id}`, httpOptions);
   }
+
+  Sort_list_exercice_pharmacie(parametre: number): Observable<any> {
+    return this.http.get<any[]>(`${environment.apiUrl}/etat/trier/parmacie/${parametre}?exercice_id=${parametre}`); 
+  }
+
+
+  Read_exercice_pharmacie(): Observable<any>
+  {
+    return this.http.get<any[]>(`${environment.apiUrl}/etat/exerciceparmacie`);
+  }
 }
