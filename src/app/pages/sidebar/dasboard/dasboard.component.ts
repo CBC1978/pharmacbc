@@ -4,6 +4,7 @@ import { NgIf } from '@angular/common';
 import { Chart, registerables, ChartOptions, ChartData, ChartType  } from 'chart.js';
 import { Router } from '@angular/router';
 import { GroupeServiceService } from '../../../services/groupeService/groupe-service.service';
+import { formatNumber } from '../../../../separateur';
 Chart.register(...registerables);
 
 @Component({
@@ -17,6 +18,8 @@ export class DasboardComponent implements OnInit {
   constructor(private router: Router,  private groupeService: GroupeServiceService) { }
   permissionNames: any[] = [];
   permissions: string[] = [];
+
+  public formatNumber = formatNumber;
   counts!: {
     consultation: number;
     pharmacie: number;

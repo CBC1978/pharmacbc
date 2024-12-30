@@ -5,6 +5,7 @@ import { CommonModule, NgFor, NgIf, UpperCasePipe } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ConsultationServiceService } from '../../../../services/consultatonService/consultation-service.service';
 import bootstrap from '../../../../../main.server';
+import { formatNumber } from '../../../../../separateur';
 
 @Component({
   selector: 'app-consultation-afficher',
@@ -14,7 +15,7 @@ import bootstrap from '../../../../../main.server';
   styleUrl: './consultation-afficher.component.css'
 })
 export class ConsultationAfficherComponent implements OnInit {
-
+  public formatNumber = formatNumber;
   consul_rembForm!: FormGroup;
   consultations: any[] = [];
   consultation!:any;
@@ -84,7 +85,7 @@ export class ConsultationAfficherComponent implements OnInit {
       modalDiv.style.display ='none';
     }
   }
-
+ 
   Open_rejeter(consultation: any) {
       this.consultation = consultation;
       const modalDiv = document.getElementById('refuserDemande');

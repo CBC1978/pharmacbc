@@ -24,7 +24,7 @@
                       </thead>
                       <tbody *ngFor="let consultation of consultations;">
                         <tr>
-                          <td>{{consultation.montant_demande}}</td>
+                          <td>{{formatNumber(consultation.montant_demande)}}</td>
                           <td>
                             <span *ngIf="consultation.statut_demande === 'non validé'; else validation_statut">En attente de validation par le comptable</span>
                             <ng-template #validation_statut>

@@ -32,8 +32,8 @@
                             <div *ngFor="let site of user.sites">
                               {{ site.libelle }}
                             </div>
-                          <td>{{user.solde_consultation}}</td>
-                          <td>{{user.solde_pharmacie}}</td>
+                          <td>{{formatNumber(user.solde_consultation)}}</td>
+                          <td>{{formatNumber(user.solde_pharmacie)}}</td>
                           <td>{{user.statut_utilisateur}}</td>
                           <td>
                             <div class="form-button-action">

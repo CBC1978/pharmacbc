@@ -5,6 +5,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { SidebarAdminComponent } from '../../../sidebar/sidebar-admin/sidebar-admin.component';
 import { Router } from '@angular/router';
 import { ExerciceServiceService } from '../../../../services/exerciceService/exercice-service.service';
+import { formatNumber } from '../../../../../separateur';
 
 
 @Component({
@@ -32,6 +33,7 @@ export class RemboursementConsultationAfficherComponent implements OnInit {
       this.consultations = response.data;
     }); 
   }
+  public formatNumber = formatNumber;
 
   handleSearchResults(results: any[]){
     this.consultations = results; // Met à jour les utilisateurs affichés avec les résultats de la recherche

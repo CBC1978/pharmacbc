@@ -21,8 +21,8 @@
                       <tbody *ngFor="let exercice of exercices;">
                         <tr>
                           <td>{{exercice.libelle}}</td>
-                          <td>{{exercice.solde_pharmacie}}</td>
-                          <td>{{exercice.solde_consultation}}</td>
+                          <td>{{formatNumber(exercice.solde_pharmacie)}}</td>
+                          <td>{{formatNumber(exercice.solde_consultation)}}</td>
                           <td>{{exercice.date_debut}}</td>
                           <td>{{exercice.date_fin}}</td>
                           <td>{{exercice.statut_exercice}}</td>

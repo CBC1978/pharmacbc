@@ -24,7 +24,7 @@
                     <tbody *ngFor="let pharmacie of pharmacies;">
                       <tr>
                         
-                        <td>{{pharmacie.montant_demande}}</td>
+                        <td>{{formatNumber(pharmacie.montant_demande) }}</td>
                         <td>
                           <span *ngIf="pharmacie.statut_demande === 'non validé'; else validation_statut">En attente de validation par le comptable</span>
                           <ng-template #validation_statut>

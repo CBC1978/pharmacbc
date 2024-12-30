@@ -9,7 +9,6 @@
                 <div class="card">
                   <div class="card-body">
                     <h4 class="card-title">Demande de remboursement pour la Consultation</h4>
-                    <br>
                     <form class="forms-sample" [formGroup]="consultationForm">
                       <div *ngIf="mess" class="alert alert-success">
                         {{ mess }}
@@ -20,7 +19,6 @@
                               <option *ngFor="let site of sites;" [value]="site.id">{{ site.libelle }}</option>
                           </select>
                         </div>
-                        <br>
                         <div *ngIf="message" class="text-danger" role="alert">
                           *{{ message }}
                         </div>
@@ -29,7 +27,6 @@
                             <label for="inputNanme4" class="form-label">Montant de la demande  <span class="text-danger">*</span>  </label>
                             <input type="number" class="form-control" id="exampleInputName1"  formControlName="montant_demande">
                         </div>
-                        <br>
                         <br>
                       <button type="submit" class="btn btn-primary me-2"(click)="Ajouter_consultation()" >Soumettre</button>
                     </form>

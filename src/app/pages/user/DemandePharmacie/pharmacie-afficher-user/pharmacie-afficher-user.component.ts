@@ -4,6 +4,7 @@ import { PharmacieServiceService } from '../../../../services/pharmacieService/p
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SidebarAdminComponent } from '../../../sidebar/sidebar-admin/sidebar-admin.component';
+import { formatNumber } from '../../../../../separateur';
 
 @Component({
   selector: 'app-pharmacie-afficher-user',
@@ -60,4 +61,8 @@ export class PharmacieAfficherUserComponent implements OnInit {
   Modifier_pharmacie(id: number) {
     this.router.navigate(['/pharmacie_modifier', id]);
   }
+
+  
+  public formatNumber = formatNumber;
+  
 }

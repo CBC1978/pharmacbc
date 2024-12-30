@@ -5,6 +5,7 @@ import { CommonModule, NgFor, NgIf, UpperCasePipe } from '@angular/common';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { SidebarAdminComponent } from '../../../sidebar/sidebar-admin/sidebar-admin.component';
 import { ExerciceServiceService } from '../../../../services/exerciceService/exercice-service.service';
+import { formatNumber } from '../../../../../separateur';
 
 @Component({
   selector: 'app-remboursement-pharmacie-afficher',
@@ -36,6 +37,7 @@ export class RemboursementPharmacieAfficherComponent implements OnInit {
     this.pharmacies = results; // Met à jour les utilisateurs affichés avec les résultats de la recherche
   }
 
+  public formatNumber = formatNumber;
   Pdf_remboursement_pharmacie(): void {
     this.remboursement_pharmacieService.Generate_pdf_pharmacie().subscribe((data: Blob) => {
       // Exemple : pour le téléchargement du PDF

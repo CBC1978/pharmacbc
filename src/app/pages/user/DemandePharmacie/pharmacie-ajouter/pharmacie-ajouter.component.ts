@@ -40,6 +40,10 @@ export class PharmacieAjouterComponent {
       this.pharmacieService.Create_pharmacie(this.pharmacieForm.value).subscribe(response => {
         console.log(response); // Affiche les données reçues depuis l'API
         this.mess = response.message
+        setTimeout(() => {
+          this.pharmacieForm.reset();
+          this.mess = '';
+        },2000);
       },
       (error: HttpErrorResponse) => {
         console.error(error);

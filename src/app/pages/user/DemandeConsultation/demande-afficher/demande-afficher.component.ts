@@ -5,6 +5,7 @@ import { RouterOutlet, RouterLink, RouterLinkActive, ActivatedRoute, Router } fr
 
 import { ConsultationServiceService } from '../../../../services/consultatonService/consultation-service.service';
 import { SidebarAdminComponent } from '../../../sidebar/sidebar-admin/sidebar-admin.component';
+import { formatNumber } from '../../../../../separateur';
 
 @Component({
   selector: 'app-demande-afficher',
@@ -15,6 +16,8 @@ import { SidebarAdminComponent } from '../../../sidebar/sidebar-admin/sidebar-ad
 })
 export class DemandeAfficherComponent implements OnInit {
 
+
+  public formatNumber = formatNumber;
   consultations: any[] = [];
   consultation!:any;
 

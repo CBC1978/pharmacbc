@@ -4,6 +4,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { SidebarAdminComponent } from '../../../sidebar/sidebar-admin/sidebar-admin.component';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserServiceService } from '../../../../services/authService/user-service.service';
+import { formatNumber } from '../../../../../separateur';
 
 
 @Component({
@@ -22,7 +23,7 @@ export class UtilisateurAfficherComponent implements OnInit {
     this.Afficher_user();
   }
 
-
+  public formatNumber = formatNumber;
 
   Afficher_user() {
     this.userService.Read_users().subscribe(response => {

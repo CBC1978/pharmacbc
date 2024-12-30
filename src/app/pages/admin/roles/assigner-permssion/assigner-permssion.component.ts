@@ -18,6 +18,7 @@ export class AssignerPermssionComponent {
   permissions: any[] = [];
   role: any;
   selectedRoleId!: number;
+  message :string = '';
 
   firstHalfPermissions: any[] = [];
   secondHalfPermissions: any[] = [];
@@ -27,7 +28,6 @@ export class AssignerPermssionComponent {
     this.Afficher_role();
     this.Afficher_permission();
     this.Diviser_permissions();
-
   }
 
 
@@ -78,6 +78,10 @@ export class AssignerPermssionComponent {
         .subscribe(
           response => {
             console.log(response);
+            this.message = response.message
+            setTimeout(() => {
+              this.message = '';
+            },2000);
           },
           error => {
             console.error('Erreur lors de l\'assignation des permissions', error);

@@ -11,6 +11,9 @@
                                 <form action="">
                                     <div class="row mb-3">
                                         <!-- Colonne pour le select -->
+                                        <div *ngIf="message" class="alert alert-success">
+                                            {{ message }}
+                                          </div>
                                         <div class="col-md-5">
                                             <label for="roleSelect" class="col-form-label">Sélectionner un rôle</label>
                                             <select id="roleSelect" class="form-select" aria-label="Sélectionner un rôle" [(ngModel)]="selectedRoleId" name="role">

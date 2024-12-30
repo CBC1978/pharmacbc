@@ -9,7 +9,6 @@
                 <div class="card">
                   <div class="card-body">
                     <h4 class="card-title">Demande de remboursement pour la pharmacie </h4>
-                    <br>
                     <form class="forms-sample" [formGroup]="pharmacieForm">
                       <div *ngIf="mess" class="alert alert-success">
                         {{ mess }}
@@ -20,7 +19,7 @@
                               <option *ngFor="let site of sites;" [value]="site.id">{{ site.libelle }}</option>
                           </select>
                         </div>
-                        <br>
+                        
                         <div *ngIf="message" class="text-danger" role="alert">
                           *{{ message }}
                         </div>

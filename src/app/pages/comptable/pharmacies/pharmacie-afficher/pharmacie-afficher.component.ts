@@ -4,6 +4,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { SidebarAdminComponent } from '../../../sidebar/sidebar-admin/sidebar-admin.component';
 import { PharmacieServiceService } from '../../../../services/pharmacieService/pharmacie-service.service';
+import { formatNumber } from '../../../../../separateur';
 
 @Component({
   selector: 'app-pharmacie-afficher',
@@ -25,7 +26,7 @@ export class PharmacieAfficherComponent implements OnInit {
     
   }
  
-
+  public formatNumber = formatNumber;
   Afficher_pharmacie() {
     this.pharmacieService.Read_pharmacie_comptable().subscribe(response => {
       console.log(response); // Affiche les données reçues depuis l'API

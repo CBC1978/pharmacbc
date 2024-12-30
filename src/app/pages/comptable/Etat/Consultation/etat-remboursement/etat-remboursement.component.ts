@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ExerciceServiceService } from '../../../../../services/exerciceService/exercice-service.service';
 import { SidebarAdminComponent } from '../../../../sidebar/sidebar-admin/sidebar-admin.component';
+import { formatNumber } from '../../../../../../separateur';
 
 @Component({
   selector: 'app-etat-remboursement',
@@ -25,6 +26,8 @@ export class EtatRemboursementComponent {
    });
    this.Afficher_etat_remb();
   }
+
+  public formatNumber = formatNumber;
 
   handleSearchResults(results: any[]){
     this.etats = results; // Met à jour les utilisateurs affichés avec les résultats de la recherche

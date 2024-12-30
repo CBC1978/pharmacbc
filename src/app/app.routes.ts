@@ -41,11 +41,13 @@ import { EtatRemboursementComponent } from './pages/comptable/Etat/Consultation/
 import { EtatPharmacieAjouterComponent } from './pages/comptable/Etat/Pharmacie/etat-pharmacie-ajouter/etat-pharmacie-ajouter.component';
 import { EtatPharmacieAfficherComponent } from './pages/comptable/Etat/Pharmacie/etat-pharmacie-afficher/etat-pharmacie-afficher.component';
 import { EtatPharmacieRembComponent } from './pages/comptable/Etat/Pharmacie/etat-pharmacie-remb/etat-pharmacie-remb.component';
+import { AccueilComponent } from './pages/sidebar/accueil/accueil.component';
 
 
 export const routes: Routes = [
     // Les routes pour les fonctions
-    { path:'', title:'home',component:LoginComponent},
+    { path:'', title:'home',component:AccueilComponent},
+    { path:'login', title:'home',component:LoginComponent},
 
     { path:'dashboard_admin', title:'Dashboard admin',component:SidebarAdminComponent},
     { path:'dashboard', title:'Dashboard admin',component:DasboardComponent},

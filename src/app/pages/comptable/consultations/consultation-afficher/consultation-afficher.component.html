@@ -33,7 +33,7 @@
                                     <td>{{consultation.matricule}}</td>
                                     <td>{{consultation.date_nom}}</td>
                                     <td>{{consultation.data_prenom}}</td>
-                                    <td>{{consultation.montant_demande}}</td>
+                                    <td>{{formatNumber(consultation.montant_demande)}}</td>
                                     <td>{{consultation.created_at| date:'dd/MM/yyyy, HH:mm:ss'}}</td>
                                     <td>
                                         <span *ngIf="consultation.statut_demande === 'non validé'; else valid"class="badge bg-warning">non validée</span>
@@ -48,40 +48,42 @@
                                     </td>
                                 </tr>
                             </tbody>
-                             <!-- Modal -->
-                             <div class="modal" id="commentModal" tabindex="-1">
-                                <div class="modal-dialog">
-                                  <div class="modal-content">
-                                    <div class="modal-header">
-                                      <h5 class="modal-title" id="exampleModalLabel">Ajouter un commentaire</h5>
-                                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="Close()"></button>
-                                    </div>
-                                    <div class="modal-body">
-                                      <textarea [(ngModel)]="commentaire" class="form-control" placeholder="Entrez votre commentaire ici..."></textarea>
-                                    </div>
-                                    <div class="modal-footer">
-                                      <span type="button" class="badge bg-success" (click)="validerConsultation()">Valider</span>
-                                    </div>
-                                  </div>
+                          <!-- Modal de validation -->
+                          <div class="modal" id="commentModal" tabindex="-1">
+                            <div class="modal-dialog modal-dialog-centered">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h5 class="modal-title" id="exampleModalLabel">Ajouter un commentaire</h5>
+                                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="Close()"></button>
                                 </div>
-                            </div>
-                            <!-- Modal -->
-                            <div class="modal" id="refuserDemande" tabindex="-1">
-                                <div class="modal-dialog">
-                                  <div class="modal-content">
-                                    <div class="modal-header">
-                                      <h5 class="modal-title" id="exampleModalLabel">Ajouter un commentaire</h5>
-                                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="Close_rejet()"></button>
-                                    </div>
-                                    <div class="modal-body">
-                                      <textarea [(ngModel)]="commentaire" class="form-control" placeholder="Entrez votre commentaire ici..."></textarea>
-                                    </div>
-                                    <div class="modal-footer">
-                                      <span type="button" class="badge bg-danger" (click)="Rejeter_demande()">Enregister</span>
-                                    </div>
-                                  </div>
+                                <div class="modal-body">
+                                  <textarea [(ngModel)]="commentaire" class="form-control" placeholder="Entrez votre commentaire ici..."></textarea>
                                 </div>
+                                <div class="modal-footer">
+                                  <span type="button" class="badge bg-success" (click)="validerConsultation()">Valider</span>
+                                </div>
+                              </div>
                             </div>
+                          </div>
+
+                          <!-- Modal de refus -->
+                          <div class="modal" id="refuserDemande" tabindex="-1">
+                            <div class="modal-dialog modal-dialog-centered">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h5 class="modal-title" id="exampleModalLabel">Ajouter un commentaire</h5>
+                                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="Close_rejet()"></button>
+                                </div>
+                                <div class="modal-body">
+                                  <textarea [(ngModel)]="commentaire" class="form-control" placeholder="Entrez votre commentaire ici..."></textarea>
+                                </div>
+                                <div class="modal-footer">
+                                  <span type="button" class="badge bg-danger" (click)="Rejeter_demande()">Enregistrer</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
                         </table>   
                     </div>
                 </div>

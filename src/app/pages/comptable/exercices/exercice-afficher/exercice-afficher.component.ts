@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ExerciceServiceService } from '../../../../services/exerciceService/exercice-service.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgFor, NgIf, UpperCasePipe } from '@angular/common';
+import { formatNumber } from '../../../../../separateur';
 
 @Component({
   selector: 'app-exercice-afficher',
@@ -27,6 +28,8 @@ export class ExerciceAfficherComponent implements OnInit {
       this.exercices = response.data;
     }); 
   }
+
+  public formatNumber = formatNumber;
 
   handleSearchResults(results: any[]){
     this.exercices = results; // Met à jour les utilisateurs affichés avec les résultats de la recherche

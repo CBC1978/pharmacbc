@@ -41,6 +41,10 @@ export class DemandeAjouterComponent {
       this.consultationService.Create_consultation(this.consultationForm.value).subscribe(response => {
         console.log(response); // Affiche les données reçues depuis l'API
         this.mess = response.message
+        setTimeout(() => {
+          this.consultationForm.reset();
+          this.mess = '';
+        },2000);
       },
       (error: HttpErrorResponse) => {
         console.error(error);
