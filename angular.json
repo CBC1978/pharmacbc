@@ -25,8 +25,17 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
-              
+              "src/styles.css",
+              "src/assets/css/bootsnav.css",
+              "src/assets/css/bootstrap.min.css",
+              "src/assets/css/bootstrap-icons.css",
+              "src/assets/css/boxicons.min.css",
+              "src/assets/css/quill.snow.css",
+              "src/assets/css/quill.bubble.css",
+              "src/assets/css/remixicon.css",
+              "src/assets/css/style.css",
+              "src/assets/css/styles.css",
+              "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
             ],
             "scripts": [
               "src/assets/js/apexcharts.min.js",
@@ -37,10 +46,7 @@
               "src/assets/js/simple-datatables.js",
               "src/assets/js/tinymce.min.js",
               "src/assets/js/validate.js",
-              "src/assets/js/main.js",
-               "src/assets/js/js/jquery.js",
-              "src/assets/js/js/bootstrap.min.js",
-              "src/assets/js/js/bootsnav.js"
+              "src/assets/js/main.js"
             ],
             "server": "src/main.server.ts",
             "prerender": true,

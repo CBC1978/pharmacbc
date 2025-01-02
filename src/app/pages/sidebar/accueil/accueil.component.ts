@@ -1,29 +1,36 @@
-import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Component, OnInit, ViewEncapsulation, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-accueil',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './accueil.component.html',
-  styleUrl: './accueil.component.css'
+  styleUrls: ['./accueil.component.css'],
+  encapsulation: ViewEncapsulation.ShadowDom
 })
-export class AccueilComponent implements OnInit  {
+export class AccueilComponent {
+  constructor(private elementRef: ElementRef) {}
 
-  scripts = ['./assets/js/js/bootsnav.js', './assets/js/js/bootstrap.min.js', './assets/js/js/jquery.js'];
+  currentYear = new Date().getFullYear();
+  isMenuOpen = false; // Variable pour gérer l'état du menu
 
-  constructor() {}
-
-  ngOnInit(): void {
-    this.loadScripts();
+  toggleMenu() {
+    this.isMenuOpen = !this.isMenuOpen; // Inverser l'état du menu
   }
 
-  loadScripts() {
-    this.scripts.forEach(script => {
-      const scriptElement = document.createElement('script');
-      scriptElement.src = script;
-      scriptElement.async = true;
-      document.body.appendChild(scriptElement);
-    });
+  scrollToSection(sectionId: string): void {
+    // Accéder au Shadow DOM du composant
+    const element = this.shadowRoot?.getElementById(sectionId);
+
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
   }
 
+  // Accéder à shadowRoot en tant que propriété du composant
+  get shadowRoot() {
+    return this.elementRef.nativeElement.shadowRoot;
+  }
 }
+  
